@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is machine-checked, and how to reproduce it · Boundary Theory</title>
+<meta name="description" content="Which statements carry a machine-checked proof, which do not, the exact commands that reproduce the check — and an honest disclosure that the published counts disagree.">
+<meta name="author" content="Xueqiang Gao (高学强)">
+<link rel="alternate" hreflang="en" href="evidence.html">
+<link rel="alternate" hreflang="zh-CN" href="evidence.zh.html">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://limisys.github.io/evidence.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="边界理论 · 高学强">
+  <meta property="og:title" content="What is machine-checked, and how to reproduce it · Boundary Theory">
+  <meta property="og:description" content="Which statements carry a machine-checked proof, which do not, the exact commands that reproduce the check — and an honest disclosure that the published counts disagree.">
+  <meta property="og:url" content="https://limisys.github.io/evidence.html">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://limisys.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="边界理论 · Boundary Theory">
+  <meta name="twitter:image" content="https://limisys.github.io/assets/og.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#10161f">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang"><a href="evidence.zh.html">中文</a></div>
+  <div class="brand">Boundary Theory · Xueqiang Gao</div>
+  <div class="crumb"><a href="index.html">Home</a> / <strong>Machine-checked results</strong></div>
+
+  <h1>What is machine-checked, and how to reproduce it</h1>
+  <div class="sub">The evidence layer — with the counts disputed in public</div>
+
+  <nav class="toc" aria-label="On this page"><b>On this page</b><a href="#sec-1">Machine-checked</a><a href="#sec-2">Not checked</a><a href="#sec-3">Reproduce</a><a href="#sec-4">Dep. graph</a><a href="#sec-5">Counts</a><a href="#sec-6">Status</a></nav>
+
+  <hr>
+
+  <p class="body"><strong>The real question on this page is not how many theorems there are. It is which statements carry a machine-checked proof, and which do not.</strong> A count is a marketing number; a boundary between proved and unproved is a scientific one. So the page is organised around that boundary — and it ends by disclosing, rather than hiding, a disagreement about the counts themselves.</p>
+
+  <h2 id="sec-1">What <em>is</em> machine-checked</h2>
+
+  <p class="body">Two corpora of Lean 4 carry proofs. They are different bodies with different scopes, and they are not interchangeable.</p>
+
+  <table>
+    <tr><th>Corpus</th><th>What it proves</th></tr>
+    <tr><td><strong>The categorical layer</strong> (CausModel)</td><td>The intervention category and its universal property; cohesion as an idempotent monad; the boundary as its fixed point; the defect as a decidable obstruction class. The layer has <strong>zero <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6528em;vertical-align:-0.2222em;"></span><span class="mord text"><span class="mord texttt">sorry</span></span></span></span></span></span>, zero <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord text"><span class="mord texttt">axiom</span></span></span></span></span></span></strong>.</td></tr>
+    <tr><td><strong>The value layer</strong> (frozen)</td><td>The <strong>33 frozen declarations</strong> — 27 theorems and 6 lemmas over 7 definitions — formalising the logistic coordinate instance: the two-term potential, the exact derivative identity, the sign trichotomy, both limits in <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ε</span></span></span></span></span>–<span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal" style="margin-right:0.0379em;">δ</span></span></span></span></span> form.</td></tr>
+    <tr><td><strong>The bridge</strong></td><td>Transfers the categorical layer's "the form is forced" theorem and its non-categoricity negative result onto the value layer's central object.</td></tr>
+  </table>
+
+  <h2 id="sec-2">What is <em>not</em> machine-checked — and cannot be</h2>
+
+  <table>
+    <tr><th>Item</th><th>Why it cannot be</th></tr>
+    <tr><td><strong>The variable identification</strong> (<span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">κ</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">↔</span></span></span></span></span> stiffness, and its companions)</td><td>It is an assumption about the world. No formalisation removes it. <span class="pill cjt">Mapping hypothesis</span></td></tr>
+    <tr><td><strong>The interpretive residue</strong></td><td>Reading the conserved charge as self-continuity is interpretation, and is tagged as such. <span class="pill cjt">Interpretation</span></td></tr>
+    <tr><td><strong>The numerical tables</strong></td><td>They are <em>deterministic computation</em>, not machine proof. Running the numbers is not proving a theorem. <span class="pill emp">Computation</span></td></tr>
+  </table>
+
+  <p class="body">Machine-checked exactness and empirical confirmation are different achievements. This work holds only the first, and says so.</p>
+
+  <h2 id="sec-3">Reproduce it</h2>
+
+  <p class="body"><code>cd lean &amp;&amp; bash build_lean_all.sh</code></p>
+
+  <div class="note">Source snapshot and reproduction scripts: see <a href="works.html">Papers &amp; code</a>; after publication also available from <a href="https://limisys.github.io/boundary-axiom/">limisys.github.io/boundary-axiom/</a>.</div>
+
+  <p class="body">A full reproduction requires Lean 4.33.0 and Mathlib of the matching version. The script compiles every module, then the single importable entry point, then runs the zero-<span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6528em;vertical-align:-0.2222em;"></span><span class="mord text"><span class="mord texttt">sorry</span></span></span></span></span></span> check. Two auxiliary scripts verify the frozen manifest and the declaration counts.</p>
+
+  <div class="note warn">
+    <b>Two known defects in the bundled verification scripts, disclosed as-is.</b>
+    (i) <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.2222em;"></span><span class="mord text"><span class="mord texttt">check_no_sorry.py</span></span></span></span></span></span> globs <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord text"><span class="mord texttt">*.lean</span></span></span></span></span></span> relative to the <em>current directory</em>, so running it from one level up scans zero files and still prints "pass" — a false green.
+    (ii) The frozen manifest <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord text"><span class="mord texttt">MANIFEST.tsv</span></span></span></span></span></span> is stale, so its verification currently <b>fails on two files</b>.
+    <b>An independent recount tool is provided precisely because the bundled scripts can report success while checking nothing.</b>
+  </div>
+
+  <h2 id="sec-4">The 33-declaration dependency graph</h2>
+
+  <p class="body">The machine-extracted dependency graph of the A-module <code>BoundaryTheory</code>: 7 definitions and 33 load-bearing declarations (40 nodes / 72 edges / 5 layers), from the boundary potential to <code>C_H = π²/3</code>.</p>
+
+  <p class="body"><strong>Read it in 60 seconds:</strong> definitions → the potential/force cluster and the entropy/integral cluster → <code>C_H</code>. The two clusters share almost no intermediate result; the graph exposes that structural seam. Note: the B-line seam and no-go are <strong>not</strong> in this graph.</p>
+
+  <p class="body">Full graph: <a href="assets/dag.svg">Dependency graph SVG</a></p>
+
+  <p class="note"><b>Current external statement (2026-10-19 unified audit):</b> unified body 56 files / 467 theorems+lemmas / 90 definitions; Paper B slice 53/417/77; A module 1/33/7. The table below is the historical four sets plus one direct measurement, kept to show the divergence in counting standards.</p>
+
+  <h2 id="sec-5">The counts disagree, and that is disclosed here</h2>
+
+  <p class="body">The programme's own documents report <strong>four different sets of numbers</strong> for the same corpora. Measuring both corpora directly, on 2026-10-09, gives a fifth. Rather than pick the flattering one, all of them are listed.</p>
+
+  <table>
+    <tr><th>Corpus</th><th>Source</th><th>Claimed</th></tr>
+    <tr><td rowspan="3"><strong>Categorical layer</strong></td><td>the paper</td><td>124 declarations · 12 modules · cold build 3333 jobs</td></tr>
+    <tr><td>the line's own audit notes</td><td>155 declarations · 14 modules · 3335 jobs</td></tr>
+    <tr><td><strong>direct measurement (2026-10-09)</strong></td><td><strong>107 theorems / 49 definitions / 15 files</strong></td></tr>
+    <tr><td rowspan="2"><strong>Boundary programme body</strong></td><td>the line's own summary</td><td>417 theorems · 77 definitions · 53 files</td></tr>
+    <tr><td><strong>direct measurement (2026-10-09)</strong></td><td><strong>434 theorems / 84 definitions / 55 files</strong></td></tr>
+    <tr><td><strong>Value layer</strong></td><td>the paper <em>and</em> the summary</td><td><strong>33 declarations</strong> — the only figure on which everything agrees</td></tr>
+  </table>
+
+  <div class="note">
+    <b>Why this is on the page rather than in a footnote.</b> A site whose stated purpose is that a competent critic can begin checking without believing anything must not present a disputed count as a fact. The counts are <b>snapshots</b>; the counts are also <b>in dispute</b>; the command is neither. <b>Run the command.</b>
+  </div>
+
+  <h2 id="sec-6">Status of every claim on this page</h2>
+  <table>
+    <tr><th>Claim</th><th>Status</th></tr>
+    <tr><td>Both corpora compile with zero <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6528em;vertical-align:-0.2222em;"></span><span class="mord text"><span class="mord texttt">sorry</span></span></span></span></span></span> and zero <span class="math"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord text"><span class="mord texttt">axiom</span></span></span></span></span></span></td><td><span class="pill thm">Machine-Checked</span></td></tr>
+    <tr><td>The 33 frozen value-layer declarations</td><td><span class="pill thm">Machine-Checked</span></td></tr>
+    <tr><td>The bridge theorems</td><td><span class="pill thm">Machine-Checked</span></td></tr>
+    <tr><td>Any declaration <em>count</em></td><td><span class="pill no">Disputed — four published sets</span></td></tr>
+    <tr><td>Any statement about a real system</td><td><span class="pill no">None exists</span></td></tr>
+  </table>
+
+  <div class="pager">
+    <span><a href="experiment.html">← The experiment</a></span>
+    <span class="nx">Next: <a href="scope.html">Scope</a> →</span>
+  </div>
+
+  <footer>
+    © 2026 Xueqiang Gao · Text CC BY 4.0 · Code Apache-2.0<br>
+    Formally published 2026-10-20 · <a href="https://github.com/limisys/limisys.github.io">site repo</a> · <a href="https://limisys.github.io/boundary-axiom/">source snapshot</a>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 660" width="100%" role="img"
+     aria-label="The theory in one figure: from the causal intervention category, through the attributive presheaf and its stable closure fibre (Layer I), to the boundary potential and its critical point (Layer II).">
+  <title>The theory in one figure</title>
+  <desc>Layer I establishes the boundary as a mathematical object; Layer II is a separate variational theory selecting an equilibrium of that object. The categorical apparatus is not machinery for deriving the two-term potential.</desc>
+
+  <defs>
+    <style>
+      .bx   { fill:#f7f8fa; stroke:#e8eaee; stroke-width:1; }
+      .bxh  { fill:#f0f4ff; stroke:#c9d7f8; stroke-width:1.2; }
+      .t    { font:14px system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans SC",sans-serif; fill:#22262e; }
+      .tm   { font:13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; fill:#22262e; }
+      .tl   { font:10.5px system-ui,sans-serif; fill:#6b7280; letter-spacing:.18em; }
+      .ta   { font:11.5px system-ui,sans-serif; fill:#6b7280; }
+      .ln   { stroke:#c8cdd6; stroke-width:1.2; fill:none; }
+      .ar   { fill:#c8cdd6; }
+      .div  { stroke:#e8eaee; stroke-width:1; stroke-dasharray:4 5; }
+      .side { stroke:#1a4fd8; stroke-width:2; opacity:.55; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" class="ar"/>
+    </marker>
+  </defs>
+
+  <!-- ── 层带 ── -->
+  <line x1="16" y1="18" x2="16" y2="300" class="side"/>
+  <line x1="16" y1="334" x2="16" y2="644" class="side"/>
+  <text x="24" y="26" class="tl">LAYER I · ONTOLOGY</text>
+  <text x="24" y="346" class="tl">LAYER II · MECHANICS</text>
+
+  <!-- ── Layer I ── -->
+  <rect x="150" y="42" width="380" height="34" rx="8" class="bx"/>
+  <text x="340" y="64" class="t" text-anchor="middle">Causal intervention category</text>
+
+  <line x1="340" y1="76" x2="340" y2="104" class="ln" marker-end="url(#a)"/>
+  <text x="350" y="96" class="ta">A1</text>
+
+  <rect x="150" y="108" width="380" height="34" rx="8" class="bx"/>
+  <text x="340" y="130" class="tm" text-anchor="middle">Attributive presheaf   A : Caus^op → Δ²</text>
+
+  <line x1="340" y1="142" x2="340" y2="170" class="ln" marker-end="url(#a)"/>
+  <text x="350" y="162" class="ta">A2</text>
+
+  <rect x="150" y="174" width="380" height="34" rx="8" class="bx"/>
+  <text x="340" y="196" class="t" text-anchor="middle">Causal cohesion is a closure operator c</text>
+
+  <line x1="340" y1="208" x2="340" y2="236" class="ln" marker-end="url(#a)"/>
+  <text x="350" y="228" class="ta">A3</text>
+
+  <rect x="170" y="240" width="340" height="46" rx="10" class="bxh"/>
+  <text x="340" y="259" class="tl" text-anchor="middle" style="fill:#1a4fd8">THE BOUNDARY</text>
+  <text x="340" y="277" class="tm" text-anchor="middle">B = stable closure fibre of A = Fix(c)</text>
+
+  <text x="340" y="304" class="ta" text-anchor="middle">interventions may still occur; attribution is no longer penetrated</text>
+
+  <!-- ── 分隔：两层，不是一条链 ── -->
+  <line x1="16" y1="318" x2="664" y2="318" class="div"/>
+  <text x="340" y="332" class="ta" text-anchor="middle" style="fill:#8a6d3b">Layer I establishes the object · Layer II selects an equilibrium of it — separately</text>
+
+  <!-- ── Layer II ── -->
+  <line x1="340" y1="342" x2="340" y2="364" class="ln" marker-end="url(#a)"/>
+  <text x="352" y="359" class="ta">project the object onto a scalar</text>
+
+  <rect x="250" y="368" width="180" height="32" rx="8" class="bx"/>
+  <text x="340" y="389" class="tm" text-anchor="middle">boundary sharpness  κ</text>
+
+  <line x1="340" y1="400" x2="340" y2="416" class="ln"/>
+  <line x1="200" y1="416" x2="480" y2="416" class="ln"/>
+  <line x1="200" y1="416" x2="200" y2="430" class="ln" marker-end="url(#a)"/>
+  <line x1="480" y1="416" x2="480" y2="430" class="ln" marker-end="url(#a)"/>
+
+  <rect x="96" y="434" width="208" height="46" rx="8" class="bx"/>
+  <text x="200" y="454" class="t" text-anchor="middle">maintenance cost</text>
+  <text x="200" y="472" class="tm" text-anchor="middle">c₀ · κ</text>
+
+  <rect x="376" y="434" width="208" height="46" rx="8" class="bx"/>
+  <text x="480" y="454" class="t" text-anchor="middle">uncertainty entropy</text>
+  <text x="480" y="472" class="tm" text-anchor="middle">α · C_F / κ</text>
+
+  <line x1="200" y1="480" x2="200" y2="494" class="ln"/>
+  <line x1="480" y1="480" x2="480" y2="494" class="ln"/>
+  <line x1="200" y1="494" x2="480" y2="494" class="ln"/>
+  <line x1="340" y1="494" x2="340" y2="512" class="ln" marker-end="url(#a)"/>
+
+  <rect x="200" y="516" width="280" height="32" rx="8" class="bx"/>
+  <text x="340" y="537" class="tm" text-anchor="middle">V(κ) = c₀κ + α C_F / κ</text>
+
+  <line x1="340" y1="548" x2="340" y2="572" class="ln" marker-end="url(#a)"/>
+  <text x="352" y="565" class="ta">A4, A5</text>
+
+  <rect x="230" y="576" width="220" height="30" rx="8" class="bx"/>
+  <text x="340" y="596" class="tm" text-anchor="middle">κ* = √(α C_F / c₀)</text>
+
+  <line x1="340" y1="606" x2="340" y2="620" class="ln" marker-end="url(#a)"/>
+
+  <rect x="250" y="624" width="180" height="30" rx="8" class="bxh"/>
+  <text x="340" y="644" class="tm" text-anchor="middle">σ* = 1</text>
+</svg>
