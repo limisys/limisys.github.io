@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>证据与版本 · 心智有边界研究纲领</title>
+<meta name="description" content="纲领入口与技术核心的冻结信息、机检口径、Gate 测试与开放缺口。">
+<style>
+:root{--paper:#f8f5ee;--ink:#1f1c18;--muted:#6d6559;--line:#d9d0c2;--accent:#7a3b2e;--serif:"Noto Serif CJK SC","Source Han Serif SC","Songti SC","SimSun",Georgia,serif;--sans:"Inter","Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;--mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.88;-webkit-font-smoothing:antialiased}
+.sitebar{border-bottom:1px solid var(--line);background:rgba(255,253,247,.72);font-family:var(--sans);font-size:12px}
+.sitebar-inner{max-width:980px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{color:var(--accent);font-weight:700;letter-spacing:.08em;text-decoration:none;white-space:nowrap}
+.sitebar nav{display:flex;gap:16px;margin-left:auto;flex-wrap:wrap}.sitebar nav a{color:var(--muted);text-decoration:none}.sitebar nav a:hover{color:var(--ink)}
+.paper{max-width:900px;margin:0 auto;padding:52px 30px 84px}
+h1{font-size:2.35rem;line-height:1.18;margin:0 0 .4em;letter-spacing:-.02em}
+h2{font-size:1.28rem;margin:2.2em 0 .5em;letter-spacing:-.01em;border-top:1px solid var(--line);padding-top:1.1em}
+h3{font-size:1.04rem;margin:1.5em 0 .4em}
+p{margin:0 0 1.1em;text-align:justify}.lede{color:var(--muted);font-size:1.02rem;max-width:62ch}
+a{color:var(--accent);text-underline-offset:3px}.muted{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:1.2em 0 1.6em;font-family:var(--sans);font-size:.88rem;line-height:1.6}
+th,td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-bottom:1px solid var(--line)}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+code{font-family:var(--mono);font-size:.86em;background:#ece7dc;padding:.1em .35em;border-radius:4px;overflow-wrap:anywhere}
+.note{border-left:3px solid var(--accent);padding:2px 0 2px 18px;color:#3b352e;margin:1.4em 0}
+.small{font-size:.88rem;color:var(--muted)}
+.footer{border-top:1px solid var(--line);margin-top:56px;padding-top:18px;font-family:var(--sans);font-size:12px;color:var(--muted);line-height:1.8}
+.footer a{color:var(--muted)}
+ul{padding-left:1.4em;margin:.4em 0 1.2em}li{margin:.3em 0}
+@media(max-width:640px){body{font-size:16.5px}.paper{padding:38px 18px 64px}h1{font-size:1.9rem}.sitebar-inner{padding:10px 14px}.sitebar nav{margin-left:0}table{display:block;overflow-x:auto}}
+@media print{.sitebar,.footer{display:none!important}.paper{max-width:none;padding:0}}
+</style>
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="mind-boundary.zh.html">心智有边界 · 研究纲领</a>
+    <nav>
+      <a href="mind-boundary.zh.html">研究纲领</a>
+      <a href="mind-boundary-tech.zh.html">技术版</a>
+      <a href="#" onclick="window.print();return false;">打印</a>
+    </nav>
+  </div>
+</header>
+<main class="paper">
+  <h1>证据与版本</h1>
+  <p class="lede">这一页不是第三个入口。它只记录入口页与技术核心的冻结状态、机检口径、Gate 参考测试，以及仍未闭合的缺口。页面本身不改变两份正文。</p>
+
+  <h2>一 · 页面结构</h2>
+  <table>
+    <thead><tr><th>页面</th><th>角色</th><th>关系</th></tr></thead>
+    <tbody>
+      <tr><td><a href="mind-boundary.zh.html">index.html</a></td><td>入口重定向</td><td>只有一个公开入口：研究纲领</td></tr>
+      <tr><td><a href="mind-boundary.zh.html">心智有边界研究纲领.html</a></td><td>唯一入口</td><td>纲领正文；头部只给技术版链接</td></tr>
+      <tr><td><a href="mind-boundary-tech.zh.html">心智有边界核心研究纲领技术版.html</a></td><td>技术核心</td><td>二级页；头部返回研究纲领</td></tr>
+      <tr><td>证据与版本.html</td><td>本页</td><td>只从页脚进入；不进入主叙事</td></tr>
+    </tbody>
+  </table>
+
+  <h2>二 · 冻结源件</h2>
+  <table>
+    <thead><tr><th>源件</th><th>行 / 字节</th><th>SHA-256</th></tr></thead>
+    <tbody>
+      <tr><td>边界如何成为系统能够辨识、表征并维护的自身组织条件.md</td><td>114 / 6012</td><td><code>114c205de81dca1871a9cb6e51c1cb61f82c7bc0c267dc2561d515a935095a3d</code></td></tr>
+      <tr><td>新版核心纲领_三层结构_20261023.md</td><td>422 / 27116</td><td class="muted">随构建读取；未改动原文</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <p><strong>冻结纪律：</strong>纲领源件不改。HTML 只做渲染、分行和版面处理；技术版标题的两行显示由构建脚本插入 <code>&lt;br&gt;</code>，原文 H1 不改。</p>
+  </div>
+
+  <h2>三 · Lean 证据（按 scope）</h2>
+  <table>
+    <thead><tr><th>范围</th><th>文件</th><th>定理 / 引理</th><th>定义</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><strong>报告同一性核心</strong></td><td>6</td><td>45</td><td>13</td><td>Moore 族、互决定、联合不动点、表示定理、非 Moore 反例；0 <code>sorry</code></td></tr>
+      <tr><td>完整验证体</td><td>56</td><td>467</td><td>90</td><td>统一仓审计体；71 模块构建通过</td></tr>
+      <tr><td>A 模块 <code>BoundaryTheory</code></td><td>1</td><td>33</td><td>7</td><td>边界势与 <code>C_H = π²/3</code> 证据；不是 45，也不是 467</td></tr>
+    </tbody>
+  </table>
+  <p class="small">v1.0 的 <code>UpClosed</code> 条件在 Lean 中是退化的：它强制 <code>R = Set.univ</code>，使“相互决定”退化为重言式。v1.1 已改用 Moore 族；旧件只保存在 <code>audit/</code> 中，不作为结论引用。</p>
+
+  <h2>四 · 一致性 Gate</h2>
+  <table>
+    <thead><tr><th>代码</th><th>检查</th><th>失败动作</th></tr></thead>
+    <tbody>
+      <tr><td>R1</td><td><code>C</code> 是闭包算子</td><td>REJECT</td></tr>
+      <tr><td>R2</td><td><code>R</code> 是 Moore 族</td><td>REVIEW</td></tr>
+      <tr><td>R3</td><td><code>c_R = C</code></td><td>REJECT</td></tr>
+      <tr><td>R4</td><td><code>report ∈ R</code></td><td>REJECT</td></tr>
+      <tr><td>R5</td><td>version / evidence / certificate 一致</td><td>REVIEW</td></tr>
+      <tr><td>R6</td><td>候选唯一</td><td>REVIEW</td></tr>
+      <tr><td>R7</td><td>parent 等于当前 head</td><td>REJECT</td></tr>
+    </tbody>
+  </table>
+  <p>有限状态参考实现 <code>gate_reference.py</code> 当前通过 <strong>14/14</strong> 项协议测试。R6 是候选生成器的性质，参考实现用 <code>gate_candidates</code> 包装；单候选的 <code>gate</code> 本身检查 R1–R5、R7。测试覆盖正例、各类拒绝/复核、崩溃注入、动作闸门与三状态玩具机。</p>
+  <p class="small">这是协议参考实现，不是生产系统，也不是“真实 agent 不可绕过”的证明。</p>
+
+  <h2>五 · 仍未闭合</h2>
+  <ul>
+    <li><strong>预层 → 闭包：</strong><code>A</code> 与 <code>c</code> 的桥尚未形式化。当前 <code>A</code> 是类型值预层；实际归因值需要全局截面，稳定纤维、路径单调性与点层/集层对齐都还没有写成定理。</li>
+    <li><strong>水平 <code>w</code>：</strong><code>V</code> 只定出 <code>κ*</code>，定不出 <code>w</code>。Gate 必须显式接收 <code>w</code>，或接收一条破缺规范的选取原则；这不是本页能闭合的。</li>
+    <li><strong>A7：</strong><code>V</code> 的形式被迫是 A7 模型类内的条件定理，不是自由范畴万有性质的直接推论。A7 能否由更强的范畴结构导出，仍是开放问题。</li>
+    <li><strong>生产行为：</strong>Gate 在真实任务上的接受/拒绝率未知；有限状态测试不能替代。</li>
+  </ul>
+
+  <h2>六 · 构建与预览</h2>
+  <p>重新生成入口与技术页：</p>
+  <pre><code>cd 论文线/html_纲领入口
+python3 build_entry_html.py</code></pre>
+  <p>本地重建：仓库内运行上述命令，公式由本地 MathJax 3.2.2 渲染，不访问外部网络。</p>
+  <p class="small">英文版见 <a href="mind-boundary.html">mind-boundary.html</a>。中文三页（纲领 / 技术版 / 证据与版本）已随本站发布。</p>
+
+  <div class="footer">
+    <div><a href="mind-boundary.zh.html">← 返回研究纲领</a> · <a href="mind-boundary-tech.zh.html">技术版 →</a></div>
+    <div>页面快照 · 2026-10-23 · 公式本地渲染 · 原文以 Markdown 源件为准</div>
+  </div>
+</main>
+</body>
+</html>

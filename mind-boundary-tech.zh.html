@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>心智有边界核心研究纲领技术版</title>
+<meta name="description" content="三层硬结构：宏大预设 → 定量动力学 → 代数—工程门控">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    tags: 'none'
+  },
+  svg: { fontCache: 'global', mtextInheritFont: true },
+  options: {
+    enableMenu: false,
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script defer src="assets/mathjax/tex-svg-full.js"></script>
+<style>
+:root {
+  --paper: #f8f5ee;
+  --ink: #1f1c18;
+  --muted: #6d6559;
+  --line: #d9d0c2;
+  --accent: #7a3b2e;
+  --code-bg: #f0ebe1;
+  --serif: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --sans: "Inter", "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.88;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.sitebar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,253,247,.72);
+  font-family: var(--sans);
+  font-size: 12px;
+}
+.sitebar-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.brand {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sitebar nav { display: flex; gap: 16px; flex-wrap: wrap; }
+.sitebar nav a { color: var(--muted); text-decoration: none; }
+.sitebar nav a:hover { color: var(--ink); }
+.sitebar .spacer { margin-left: auto; }
+.paper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 52px 30px 84px;
+}
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin: 0 0 18px;
+}
+h2 {
+  font-family: var(--sans);
+  font-size: 1.38rem;
+  line-height: 1.4;
+  margin: 2.6em 0 .8em;
+  padding-bottom: .38em;
+  border-bottom: 1px solid var(--line);
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 1.08rem;
+  line-height: 1.5;
+  margin: 2em 0 .65em;
+  color: #31505d;
+}
+p { margin: 0 0 1.1em; text-align: justify; }
+a { color: var(--accent); text-underline-offset: 3px; }
+strong { font-weight: 700; color: #12100d; }
+ul, ol { margin: 0 0 1.2em; padding-left: 1.6em; }
+li { margin: .3em 0; }
+li::marker { color: var(--accent); }
+blockquote {
+  margin: 1.4em 0;
+  padding: 13px 18px;
+  border-left: 3px solid var(--accent);
+  background: rgba(122,59,46,.045);
+  color: #3b352e;
+}
+blockquote p { margin: .2em 0; font-size: .97em; }
+code {
+  font-family: var(--mono);
+  font-size: .86em;
+  background: #ece7dc;
+  padding: .1em .35em;
+  border-radius: 4px;
+}
+pre {
+  background: transparent;
+  border: 0;
+  border-left: 2px solid var(--line);
+  border-radius: 0;
+  padding: 2px 0 2px 16px;
+  overflow: auto;
+  font-family: var(--mono);
+  font-size: 12.4px;
+  line-height: 1.55;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+hr { border: none; border-top: 1px solid var(--line); margin: 2.5em 0; }
+.diagram-figure {
+  margin: 2.1em 0;
+  text-align: center;
+}
+.diagram-figure img {
+  width: min(430px, 88%);
+  height: auto;
+  display: inline-block;
+  padding: 10px 12px;
+}
+.diagram-pipeline img { width: min(300px, 68%); }
+.title-sub {
+  display: block;
+  font-size: .72em;
+  letter-spacing: -.01em;
+  margin-top: .18em;
+}
+.math-display.math-large {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 1.65em 0;
+  font-size: 1.34em;
+}
+
+.table-wrap {
+  margin: 1.4em 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255,255,255,.28);
+}
+table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 12.8px;
+  line-height: 1.55;
+}
+th, td {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  vertical-align: top;
+  text-align: left;
+}
+th { background: #ebe4d7; font-weight: 700; white-space: nowrap; }
+tbody tr:nth-child(even) { background: rgba(255,255,255,.22); }
+.math-display {
+  margin: 1.25em 0;
+  padding: 8px 4px;
+  overflow-x: auto;
+  text-align: center;
+}
+.math-inline {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+}
+.math-inline mjx-container,
+.math-inline mjx-container > svg { max-width: 100%; }
+.math-inline mjx-container > svg { height: auto; }
+mjx-container[jax="SVG"][display="true"] {
+  margin: 1em 0 !important;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+mjx-container mjx-assistive-mml {
+  position: absolute !important;
+  left: 0 !important;
+  width: 1px !important;
+  max-width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+.footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px 48px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.7;
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .paper { padding: 34px 18px 56px; }
+  .sitebar-inner { padding: 10px 14px; gap: 10px; }
+  .sitebar .spacer { display: none; }
+  h2 { font-size: 1.22rem; }
+  h3 { font-size: 1rem; }
+}
+@media print {
+  .sitebar, .footer { display: none !important; }
+  body { background: #fff; }
+  .paper { max-width: none; padding: 0; }
+  h2, h3 { break-after: avoid; }
+  table, pre, .math-display { break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="mind-boundary.zh.html">心智有边界核心研究纲领技术版</a>
+    <span class="spacer"></span>
+    <a href="mind-boundary.zh.html">← 研究纲领</a> <a href="mind-boundary.html">English →</a> <a href="#" onclick="window.print();return false;">打印</a>
+  </div>
+</header>
+
+<main class="paper">
+<h1>心智有边界<br><span class="title-sub">核心研究纲领技术版</span></h1>
+<p>“如果一个系统只是计算边界并打印日志，它并没有心智的核心结构——因为日志可能过期、失真，甚至与当前边界矛盾。”
+我们提出了一种新的形式化纲领：<strong>将边界与自报绑定为不可分离的联合状态转移</strong>。我们给出了 Lean 形式化定理、闭包算子约束以及反例构造。</p>
+<hr>
+<h2>1 · 第一层：一个断言——心智有边界</h2>
+<h3>1.1 断言</h3>
+<blockquote>
+<p><strong>自我意识的核心内容，是辨识、表征并维护“我”与“非我”的边界。</strong></p>
+</blockquote>
+<p>这不是一条等待 Lean 直接证明的数学定理，而是纲领的<strong>选定前提</strong>。三个动词给出三个形式任务：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>核心活动</th>
+<th>系统必须解决的问题</th>
+<th>形式落点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>辨识</strong></td>
+<td>什么属于自身，什么不属于自身？</td>
+<td>干预范畴 + 边界算子</td>
+</tr>
+<tr>
+<td><strong>表征</strong></td>
+<td>系统如何在自身组织中表示这一划分？</td>
+<td>归因单形 <code>Δ²</code> + 报告族</td>
+</tr>
+<tr>
+<td><strong>维护</strong></td>
+<td>状态变化时如何保持或更新这一划分？</td>
+<td>闭包、<code>Fix</code> 与联合提交</td>
+</tr>
+</tbody>
+</table></div>
+<p>“Teleological”在这里不是自然目的论，而是说：<strong>整个纲领以“边界”为目的因来组织问题</strong>，而不是先假设一个任意智能体、再追问它偶然有没有边界。</p>
+<h3>1.2 从断言到干预范畴</h3>
+<p>把状态空间记为 <code>V</code>，把干预记为 <code>V</code> 上的箭。定义</p>
+<div class="math-display math-large" role="math">\[\mathrm{Caus} := \mathrm{Paths}(V)\]</div>
+<p>即：对象是状态，态射是干预的有限路径，恒等是零干预，复合是顺序施加。Lean 中 <code>CausModel.Caus</code> 就是 <code>Paths V</code>；结合律与单位律由<strong>自由范畴</strong>承担，不需要公设。</p>
+<p>这一层的关键不是“又定义了一个范畴”，而是<strong>万有性质</strong>：</p>
+<ul>
+<li><code>CausModel.Caus.lift</code>：任何单干预前函子都唯一延拓为 <code>Caus V</code> 上的函子；</li>
+<li><code>CausModel.Caus.lift_unique</code>：任何延拓都等于这个 <code>lift</code>；</li>
+<li><code>CausModel.Caus.map_id</code> / <code>map_comp</code>：<code>V ↦ Caus V</code> 本身是函子。</li>
+</ul>
+<p>因此，“归因沿干预传播”不是一条额外公理，而是自由构造的唯一性。</p>
+<h3>1.3 从干预范畴到归因预层</h3>
+<p>归因单形取</p>
+<div class="math-display math-large" role="math">\[\Delta^2=\{(p_S,p_N,p_U)\in[0,1]^3: p_S+p_N+p_U=1\}\]</div>
+<p>其中 <code>p_S</code> 归于自我，<code>p_N</code> 归于非我，<code>p_U</code> 悬置未定。Lean 中它被实现为类型 <code>CausModel.Simplex</code>，三项非负与和为 1 都是结构字段。</p>
+<p>原稿写：</p>
+<div class="math-display math-large" role="math">\[A:\mathrm{Caus}^{\mathrm{op}}\to\Delta^2\]</div>
+<p>严格说，<code>Δ²</code> 必须先有范畴结构，<code>A</code> 才是合法函子。Lean 的处理是：</p>
+<ul>
+<li>把 <code>Δ²</code> 实现为<strong>类型</strong> <code>Simplex</code>；</li>
+<li>给出通用构造 <code>CausModel.attribution : (V ⥤q Dᵒᵖ) → Caus V ⥤ Dᵒᵖ</code>；</li>
+<li>证明函子律 <code>attribution_map_comp</code>；</li>
+<li>证明<strong>唯一性</strong> <code>attribution_unique</code>：预层由它在单干预上的取值唯一决定。</li>
+</ul>
+<p>取 <code>D = Type</code>、值落在 <code>Simplex</code>，就得到通常写的 <code>A : Caus^op → Δ²</code>。</p>
+<p>所以 <code>A : Caus^op → Δ²</code> 的准确读法是：</p>
+<blockquote>
+<p>一个取值于 <code>Simplex</code> 的逆变预层；它在每条单干预上的拉回一旦给定，整个干预范畴上的取值就被自由构造唯一钉死。</p>
+</blockquote>
+<p><strong>必须写清的建模输入</strong>：把某个真实系统的归因值放进 <code>Simplex</code>，是建模假设（<code>CausModel</code> README 记为 A6），不是机器定理。Lean 证明的是“给定单干预数据后，预层唯一”；不是“任何系统都自然产生这样的预层”。</p>
+<h3>1.4 第一层证了什么、没证什么</h3>
+<p><strong>证了：</strong></p>
+<ul>
+<li><code>Caus</code> 是自由范畴，具有万有映射性质；</li>
+<li><code>V ↦ Caus V</code> 是函子；</li>
+<li>归因预层由单干预数据唯一延拓；</li>
+<li><code>Simplex</code> 的三项非负、和为 1 是结构约束。</li>
+</ul>
+<p><strong>没证：</strong></p>
+<ul>
+<li>某个真实系统的归因结构就是这样的预层（A6 建模输入）；</li>
+<li>归因预层 <code>A</code> 自动决定边界闭包 <code>c</code>——这两层在 Lean 中是分开的模块，<strong>桥尚未写成定理</strong>；</li>
+<li>“所有自主系统都有边界”这一普遍命题。</li>
+</ul>
+<p>第一层的作用是<strong>把问题固定成可形式化的形状</strong>，不是宣称世界必然如此。</p>
+<hr>
+<h2>2 · 第二层：V(κ) = c₀κ + αC_F/κ；C_H = π²/3</h2>
+<h3>2.1 边界势</h3>
+<p>引入边界势</p>
+<div class="math-display math-large" role="math">\[V(\kappa)=c_0\kappa+\alpha C_F/\kappa\]</div>
+<p>其中 <code>κ</code> 是边界锐度，<code>c₀</code> 是单位维护成本，<code>α</code> 是不确定性价格，<code>C_F</code> 是核常数。</p>
+<p>Lean 中有两个入口：</p>
+<ul>
+<li>值层：<code>BoundaryTheory.V c₀ α κ := c₀ * κ + (α * π² / 3) / κ</code>；</li>
+<li>范畴层模型类：<code>CausModel.BoundaryModel.V M κ := M.maint κ + M.α * M.C_F / κ</code>。</li>
+</ul>
+<p>范畴层的<strong>形式被迫</strong>定理：</p>
+<pre><code class="language-lean">theorem CausModel.BoundaryModel.V_form_forced (M : BoundaryModel) (κ : ℝ) :
+    M.V κ = M.maint.unitCost * κ + M.α * M.C_F / κ
+</code></pre>
+<p>它证明：在 <strong>A7</strong>（维护成本是连续加性泛函）之下，维护项被迫为 <code>c₀κ</code>。熵项 <code>αC_F/κ</code> 由 <code>V</code> 的定义与 <code>boundaryEntropy_eq</code> 给出；两者合起来才是 <code>V(κ)=c₀κ+αC_F/κ</code>。A7 是<strong>新增公理</strong>，不是从旧范畴公理推出的；<code>c₀</code> 不被 A7 决定（<code>unitCost_not_determined</code>）。</p>
+<blockquote>
+<p><strong>证明强度审计（论文债 D-011）</strong>：<code>V_form_forced</code> 的证明内核是 <code>map_real_smul</code>（连续加性 ⇒ 线性），<strong>不是</strong>自由范畴/万有性质的直接推论。它是“范畴层包内的模型类层定理”；对外引用时必须同时写 A7 与“模型类层”。详见 <code>论文债/02_D011_范畴层与模型类层_20261023.md</code>。</p>
+</blockquote>
+<p>值层通过</p>
+<pre><code class="language-lean">theorem BoundaryBridge.BoundaryTheory_V_eq_model_V ...
+theorem BoundaryBridge.value_layer_form_forced ...
+</code></pre>
+<p>被证明是范畴层模型类在 <code>(线性维护 c₀, α, C_F=π²/3)</code> 处的<strong>实例</strong>。</p>
+<h3>2.2 临界锐度 κ*</h3>
+<p>由 <code>dV/dκ = 0</code> 得</p>
+<div class="math-display math-large" role="math">\[\kappa^*=\pi\sqrt{\alpha/(3c_0)}\]</div>
+<p>Lean 中：</p>
+<ul>
+<li><code>BoundaryTheory.deriv_V_kappaStar</code>：<code>V'(κ*) = 0</code>；</li>
+<li><code>ValueLayerMin.V_global_min</code>：<code>κ*</code> 是 <code>V</code> 在 <code>κ&gt;0</code> 上的<strong>全局最小点</strong>，不只是驻点；</li>
+<li><code>ValueLayerMin.V_eq_min_iff</code>：等号唯一，<code>V(κ)=V(κ*) ⇔ κ=κ*</code>；</li>
+<li><code>ValueLayerMin.deriv_zero_iff</code>：<code>V'(κ)=0 ⇔ κ=κ*</code>；</li>
+<li><code>BoundaryBridge.V_at_kappaStar</code>：<code>V(κ*) = 2√(c₀ · απ²/3)</code>；</li>
+<li><code>BoundaryBridge.V_lower_bound</code>：<code>2√(c₀ · απ²/3) ≤ V(κ)</code>；</li>
+<li><code>CausModel.Tradeoff.two_term_bound</code>：一般两项下界 <code>2√(AB) ≤ Aκ + B/κ</code>。</li>
+</ul>
+<p>这一层把“边界的最优尺度”从口号变成<strong>全局最小 + 唯一性 + 闭式</strong>三条机检事实。</p>
+<h3>2.3 普适准则 σ* = 1：正确强度是“规范”，不是“任意参数都成立”</h3>
+<p>临界张力定义为</p>
+<div class="math-display math-large" role="math">\[\sigma^*=\pi^2\alpha/(3C_0)\]</div>
+<p>Lean 中：</p>
+<ul>
+<li><code>BoundaryTheory.sigmaStar_general</code>：<code>σ* = π²α/(3C₀)</code>；</li>
+<li><code>BoundaryTheory.sigmaStar_eq_one_iff</code>：<code>σ* = 1 ⇔ π²α = 3C₀</code>；</li>
+<li><code>BoundaryTheory.sigmaStar_eq_one</code>：在 <code>α = 3C₀/π²</code> 下，<code>σ* = 1</code>；</li>
+<li><code>DimensionAlgebra.sigmaStar_not_forced_one</code>：<strong>不是</strong>对所有正参数都有 <code>σ* = 1</code>（反例 <code>α=1, C₀=2</code>）。</li>
+</ul>
+<p>因此，“普适准则 σ*=1”必须写成：</p>
+<blockquote>
+<p><strong>普适的是无量纲临界条件 <code>π²α = 3C₀</code>；<code>σ*=1</code> 是把该临界面规范为 1 的写法。</strong>
+它不是“任意系统都自动 σ*=1”的普遍定律。</p>
+</blockquote>
+<p>这是本层最重要的口径纪律：<strong>普适性属于判据的形状，不属于参数的数值。</strong></p>
+<h3>2.4 C_H = π²/3 的机器合规证明</h3>
+<p>核心常数的值不是数值拟合，而是 Lean 定理：</p>
+<pre><code class="language-lean">theorem BoundaryTheory.C_H_eq_pi_sq_div_three :
+    (∫ z : ℝ, entropyDensity z) = π ^ 2 / 3
+</code></pre>
+<p>以及范畴层到值层的 logistic 桥：</p>
+<pre><code class="language-lean">theorem BoundaryBridge.coreConstant_sig_eq_pi_sq_div_three :
+    CausModel.coreConstant CausModel.sig = π ^ 2 / 3
+</code></pre>
+<p>这两条把 <code>C_H = π²/3</code> 从“确定性计算”升为<strong>机器合规证明</strong>（0 <code>sorry</code> / 0 <code>axiom</code>，仅标准三公理）。tanh 核的同轨值 <code>π²/6</code> 由 <code>coreConstant_tanh_eq_pi_sq_div_six</code> 给出。</p>
+<h3>2.5 第二层的边界</h3>
+<ul>
+<li><code>V</code> 的形式被迫<strong>以 A7 为前提</strong>；没有 A7，不能声称形式由旧公理推出。</li>
+<li><code>c₀</code> 是自由尺度（<code>unitCost_not_determined</code>）；<code>σ*=1</code> 是规范，不是 <code>c₀</code> 的推论。</li>
+<li><code>C_F</code> 是核相关常数；只有 logistic 核被机检为 <code>π²/3</code>，一般核需要另行桥接。</li>
+<li>“普适”只指无量纲判据；不是所有系统共享同一数值。</li>
+</ul>
+<hr>
+<h2>3 · 第三层：闭包与报告同一性（边界—自报不可分离）</h2>
+<h3>3.1 从 κ* 到闭包算子</h3>
+<p>值层的锐度 <code>κ</code> 不是停在公式里。<code>SharpnessClosure</code> 把它送进闭包算子：</p>
+<pre><code class="language-lean">noncomputable def c (κ μ w : ℝ) (z : ℝ) : ℝ :=
+  if z ≤ μ - w / κ then z
+  else if z &lt; μ + w / κ then μ + w / κ
+  else z
+</code></pre>
+<p>Lean 中：</p>
+<ul>
+<li><code>SharpnessClosure.isClosure_c</code>：<code>c κ μ w</code> 是闭包算子（扩张、单调、幂等）；</li>
+<li><code>SharpnessClosure.fix_c</code>：<code>Fix(c κ μ w)</code> 是两条尾；</li>
+<li><code>SharpnessClosure.fix_c_eq_decided</code>：取 <code>w = L θ</code>，<code>Fix(c κ μ w)</code> 恰是可解芯的已决集；</li>
+<li><code>SharpnessClosure.fix_mono_in_kappa</code>：<code>κ</code> 越大，刚性面越大；</li>
+<li><code>SharpnessClosure.sharpness_enters_closure</code>：以上三条打包。</li>
+</ul>
+<p>因此，第二层的 <code>κ*</code> 可以进入第三层：取 <code>C := c κ* μ w</code>，边界就是 <code>Fix(C)</code>。这一步把“势的最优尺度”与“闭包算子”接上。</p>
+<p>但有一个必须写明的规范自由度：<code>ClosureGauge.c_scale</code> 证明 <code>c</code> 只依赖比值 <code>w/κ</code>，所以 <code>(κ,w) → (λκ,λw)</code> 是闭包看不见的一维方向；<code>V</code> 的极小只定出 <code>κ*</code>，<strong>定不出水平 <code>w</code></strong>。门控必须把 <code>w</code> 作为提交内容之一，而不能声称它是从 <code>V</code> 推导出来的。</p>
+<h3>3.2 admissibility 必须收缩到 Moore 族</h3>
+<p>不是所有报告族都能作为“边界的自报”。可采纳类必须收缩到 <strong>Moore 族</strong>：</p>
+<div class="math-display math-large" role="math">\[\mathrm{Moore}(R):=\forall F\subseteq R,\ \bigcap F\in R\]</div>
+<p>即对任意交封闭（空族之交为 <code>Ω</code>，故自动含 <code>Ω</code>）。Lean 中（v1.1 更正版）：</p>
+<ul>
+<li><code>ReportIdentityCore.moore_iff_exists_closure</code>：<code>Moore R ↔ ∃ c, IsClosure c ∧ R = Fix c</code>；</li>
+<li><code>ReportIdentityCore.fix_moore</code>：任意闭包算子的 <code>Fix</code> 是 Moore 族；</li>
+<li><code>ReportIdentityCore.rep_eq_iff_closureOperator_eq</code>：Moore 族之间，<code>c_R = c_R′ ⇔ R = R′</code>；</li>
+<li><code>ReportIdentityCore.report_eq_fix_iff</code>：Moore 族下，<code>R = Fix(c_I) ⇔ c_R = c_I</code>；</li>
+<li><code>ReportCountermodelsCore.nonMoore_not_canonical</code>：存在非 Moore 的 <code>R</code>，使 <code>R ≠ Fix(c_R)</code>。</li>
+</ul>
+<p><strong>为什么不是别的条件？</strong> 因为 Moore 族恰好是闭包算子闭元族的特征类。它不是为证明方便而加的技术条件，而是“报告族能作为边界闭元族”这一要求的精确形式。这是纲领的<strong>可采纳性判据</strong>：不是“所有系统自动是 Moore”，而是“若要用闭包算子定义边界，报告族就必须收缩到 Moore；否则同一性定理不适用”。</p>
+<p><strong>必须记录的一次更正</strong>：旧版用 <code>UpClosed</code>（<code>∅∈R</code> 且对超集封闭）作为前件；Lean 审计证明</p>
+<div class="math-display math-large" role="math">\[\mathrm{UpClosed}(R)\Rightarrow R=\mathrm{Set.univ}\]</div>
+<p>即该前件退化，旧版的“相互决定”在它下面是重言式。新版一律用 Moore；旧件保留在审计目录，不作为结论引用。</p>
+<h3>3.3 一致性门控：把最优解与代数闭包合成一次提交</h3>
+<p>候选对象不是一个动作，而是一个完整 bundle：</p>
+<div class="math-display math-large" role="math">\[\mathrm{Bundle}=(\kappa^*,C,R,\mathrm{report},\mathrm{evidence},\mathrm{version})\]</div>
+<p>其中：</p>
+<ul>
+<li><code>κ*</code>：第二层的全局最优锐度；</li>
+<li><code>C</code>：<code>SharpnessClosure.c κ* μ w</code>，即带锐度的闭包算子；</li>
+<li><code>R</code>：报告族，必须等于 <code>Fix(C)</code>（Moore 族）；</li>
+<li><code>report</code>：运行时自报，必须属于 <code>R</code>；</li>
+<li><code>evidence</code> / <code>version</code>：同一状态版本。</li>
+</ul>
+<p>Gate 的检查顺序：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>代码</th>
+<th>检查</th>
+<th>失败动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R1</td>
+<td><code>C</code> 是闭包算子</td>
+<td>REJECT</td>
+</tr>
+<tr>
+<td>R2</td>
+<td><code>R</code> 是 Moore 族</td>
+<td>REVIEW</td>
+</tr>
+<tr>
+<td>R3</td>
+<td><code>c_R = C</code></td>
+<td>REJECT</td>
+</tr>
+<tr>
+<td>R4</td>
+<td><code>report ∈ R</code></td>
+<td>REJECT</td>
+</tr>
+<tr>
+<td>R5</td>
+<td><code>version</code> / <code>evidence</code> 一致</td>
+<td>REVIEW</td>
+</tr>
+<tr>
+<td>R6</td>
+<td>候选唯一</td>
+<td>REVIEW</td>
+</tr>
+<tr>
+<td>R7</td>
+<td><code>parent</code> 哈希等于当前 head</td>
+<td>REJECT</td>
+</tr>
+</tbody>
+</table></div>
+<p>只有全部通过，才执行<strong>原子提交</strong>：</p>
+<div class="math-display math-large" role="math">\[\mathrm{commit}(\mathrm{Bundle})\]</div>
+<p>动作执行器只接受已提交的 <code>Bundle</code>，不接受裸动作。于是：</p>
+<blockquote>
+<p><strong>系统没有合法路径，可以在没有匹配自报的情况下提交边界；也没有合法路径，可以提交与边界不一致的自报。</strong></p>
+</blockquote>
+<p>这不是“再加一个日志模块”，而是把 <code>κ*</code> 的最优性 、<code>C</code> 的闭包性、<code>R</code> 的 Moore 性、<code>report</code> 的归属、<code>evidence</code> 的版本<strong>绑成一个不可拆的提交对象</strong>。这就是“范畴势能的最优解”与“代数闭包”的合成点。</p>
+<p>由此可以说明：系统的组成部分通过受约束的交互关系形成一个整体；这套交互关系既参与定义系统的可实现状态，又构成系统感知、报告和调节自身状态的物理载体与通信协议。我们以两连杆倒立摆的自平衡边界仿真为对象，把“铰链”视为最小具身约束载体，并据此定义一种最小通信协议；该仿真用于检验约束如何形成共同状态空间，以及系统如何依据自身运行结果，报告、维护并调整状态空间的边界。这里得到的是仿真层面的支持，不是 Lean 定理。</p>
+<h3>3.4 这一层证了什么、没证什么</h3>
+<p><strong>证了（Lean）：</strong></p>
+<ul>
+<li><code>c κ μ w</code> 是闭包算子；<code>Fix</code> 的显式形式；锐度单调；</li>
+<li>Moore 族 ↔ 闭包算子闭元族的表示定理；</li>
+<li>Moore 族上报告与算子相互唯一决定；</li>
+<li>非 Moore 反例，前件不可删。</li>
+</ul>
+<p><strong>做了（工程参考实现）：</strong></p>
+<ul>
+<li><code>gate_reference.py</code> 在有限状态空间上跑通正例、R1–R7、崩溃注入、动作闸门，13/13 通过；</li>
+<li>这证明协议<strong>可执行</strong>，不证明它在生产 agent 上不可绕过。</li>
+</ul>
+<p><strong>没证：</strong></p>
+<ul>
+<li>生产系统（CaseOS）中的 joint-commit 实现；</li>
+<li><code>w</code>/水平的唯一性（<code>ClosureGauge.c_scale</code> 说明它是规范方向）；</li>
+<li>归因预层 <code>A</code> 与闭包 <code>c</code> 的桥；</li>
+<li>真实 agent 上的违反率、误拒率。</li>
+</ul>
+<hr>
+<h2>4 · 原始四步如何嵌入三层</h2>
+<p>旧版四步没有被丢掉，而是被重新分层：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>旧版四步</th>
+<th>新版落点</th>
+<th>机检/工程锚点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 把自我意识解释为边界</td>
+<td><strong>第一层 · 宏大预设</strong></td>
+<td><code>Caus</code>、<code>Simplex</code>、<code>attribution_unique</code></td>
+</tr>
+<tr>
+<td>2. 操作化为边界算子、报告族</td>
+<td><strong>第三层 · 代数</strong></td>
+<td><code>c_R</code>、<code>Moore</code>、<code>report_eq_fix_iff</code></td>
+</tr>
+<tr>
+<td>3. 证明边界与报告相互决定</td>
+<td><strong>第三层 · 代数</strong></td>
+<td><code>rep_eq_iff_closureOperator_eq</code>、<code>report_eq_fix_iff</code></td>
+</tr>
+<tr>
+<td>4. 实现为不可分离不变量</td>
+<td><strong>第三层 · 工程门控</strong></td>
+<td>Gate R1–R7、原子提交、动作闸门</td>
+</tr>
+</tbody>
+</table></div>
+<p>第二层（<code>V</code>、<code>κ*</code>、<code>σ*</code>、<code>C_H</code>）是旧版四步里没有充分展开的“定量动力学”，现在成为三层叙事的中间支柱。</p>
+<p>三个动词也重新落位：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>动词</th>
+<th>新版落点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>辨识</strong></td>
+<td>干预范畴 + 闭包算子 <code>C</code></td>
+</tr>
+<tr>
+<td><strong>表征</strong></td>
+<td>归因单形 <code>Simplex</code> + 报告族 <code>R</code></td>
+</tr>
+<tr>
+<td><strong>维护</strong></td>
+<td><code>Fix(C)</code> + 原子提交 + 动作闸门</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2>5 · 证据台账（可核对）</h2>
+<p><strong>仓根</strong>
+<code>论文线/论文/04_研究支撑/潜龙_理论主场/03-数学形式化/形式化全局完整唯一仓库</code></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>层</th>
+<th>声明</th>
+<th>文件 : 行</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>CausModel.Caus</code> / <code>Caus.lift_unique</code></td>
+<td><code>vendor/CausModel/CausModel/Caus.lean:37</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>CausModel.Simplex</code></td>
+<td><code>vendor/CausModel/CausModel/Attribution.lean:45</code></td>
+<td>机检（类型）</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>CausModel.attribution</code> / <code>attribution_unique</code></td>
+<td>同上 <code>:83</code> / <code>:104</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>BoundaryTheory.V</code></td>
+<td><code>lean/BoundaryTheory.lean:30</code></td>
+<td>定义</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>CausModel.BoundaryModel.V_form_forced</code></td>
+<td><code>vendor/CausModel/CausModel/Maintenance.lean:95</code></td>
+<td>机检（A7）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>ValueLayerMin.V_global_min</code> / <code>V_eq_min_iff</code></td>
+<td><code>lean/ValueLayerMin.lean:125</code> / <code>:133</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>BoundaryTheory.deriv_V_kappaStar</code></td>
+<td><code>lean/BoundaryTheory.lean:58</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>BoundaryTheory.sigmaStar_eq_one_iff</code></td>
+<td>同上 <code>:82</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>DimensionAlgebra.sigmaStar_not_forced_one</code></td>
+<td><code>lean/DimensionAlgebra.lean:155</code></td>
+<td>机检（负）</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>BoundaryTheory.C_H_eq_pi_sq_div_three</code></td>
+<td><code>lean/BoundaryTheory.lean:923</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>BoundaryBridge.coreConstant_sig_eq_pi_sq_div_three</code></td>
+<td><code>lean/BoundaryBridge_layers.lean:40</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>SharpnessClosure.isClosure_c</code> / <code>fix_c</code> / <code>fix_mono_in_kappa</code></td>
+<td><code>lean/SharpnessClosure.lean:110</code> / <code>:115</code> / <code>:174</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ClosureGauge.c_scale</code></td>
+<td><code>lean/ClosureGauge.lean:29</code></td>
+<td>机检</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ReportIdentityCore.Moore</code> / <code>moore_iff_exists_closure</code></td>
+<td><code>匿名社区发布_20261023/02_Lean仓库/lean/ReportIdentityCore.lean:17</code> / <code>:120</code></td>
+<td>机检（v1.1）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ReportIdentityCore.report_eq_fix_iff</code></td>
+<td>同上 <code>:78</code></td>
+<td>机检（v1.1）</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>ReportCountermodelsCore.nonMoore_not_canonical</code></td>
+<td>同上 <code>ReportCountermodelsCore.lean:54</code></td>
+<td>机检（v1.1）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gate 协议 / 参考实现</td>
+<td><code>匿名社区发布_20261023/03_架构/</code></td>
+<td>设计 + 13/13 参考实现</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>口径</strong>：<code>BoundaryTheory</code> 与 <code>CausModel</code> 的机检是上游统一仓（56 件 / 467 定理引理 / 90 定义 / 0 sorry / 0 axiom，CausModel 15 件另计）；Moore 族是 v1.1 更正版，见 <code>02_Lean仓库/audit/</code> 的 <code>UpClosed</code> 退化审计。</p>
+</blockquote>
+<hr>
+<h2>6 · 可证伪条件与开放问题</h2>
+<ol start="0">
+<li><strong>D-011（下一科研核心议题）</strong>：<code>V_form_forced</code> 是“A7 + 连续加性 ⇒ 线性”的模型类层定理，不是自由范畴/万有性质的直接推论。下一阶段必须二选一：从某种范畴结构导出 A7，或证明在现有签名下不可导；在此之前，所有文本按“范畴定理 / 模型类定理 / 桥接 / 工程目标”分级。</li>
+<li><strong>预层桥</strong>：构造一个具体的 <code>Simplex</code> 值预层，并证明它决定一个非平凡闭包算子；或证明不存在这样的桥。当前 <code>Attribution</code> 与 <code>Boundary</code> 是分开的。</li>
+<li><strong>水平 <code>w</code></strong>：<code>ClosureGauge.c_scale</code> 说明 <code>c</code> 只依赖 <code>w/κ</code>；能否从系统自身定出 <code>w</code>（而不是把它作为提交参数）？若不能，门控必须显式提交 <code>w</code>。</li>
+<li><em><em>σ</em>=1 的地位</em>*：能否从更深的原则推出 <code>π²α=3C₀</code>，还是它只是规范？<code>sigmaStar_not_forced_one</code> 已排除“对所有参数自动成立”。</li>
+<li><strong>真实 agent</strong>：Gate 在真实任务上是否要么全放行、要么全拒绝？若是，报告族粒度需要重设计。</li>
+<li><strong>A7 的经验基础</strong>：维护成本的可加+连续在哪些系统中成立？若不成立，<code>V_form_forced</code> 的前件失效，形式不再被迫。</li>
+</ol>
+<hr>
+<h2>7 · 结论：三层一句话</h2>
+<ol>
+<li><strong>宏大预设</strong>：自我意识的核心是边界；边界的第一层形式是干预范畴上的归因预层 <code>A : Caus^op → Δ²</code>。</li>
+<li><strong>定量动力学</strong>：边界的第二层形式是势 <code>V(κ)=c₀κ+αC_F/κ</code>；<code>κ*</code> 是唯一全局最优；<code>σ*=1</code> 是无量纲临界条件 <code>π²α=3C₀</code> 的规范写法；<code>C_H=π²/3</code> 已被 Lean 机检。</li>
+<li><strong>代数—工程门控</strong>：边界的第三层形式是 Moore 族上的闭包与报告同一性；一致性 Gate 把 <code>κ*</code>、<code>c_{κ*}</code>、<code>R=Fix(c_{κ*})</code>、<code>report</code> 与 <code>evidence</code> 绑成一次原子提交，使边界与自报不能被分别提交。</li>
+</ol>
+<blockquote>
+<p><strong>统一边界纲领第九版曾说“边界如何成为系统能够辨识、表征并维护的自身组织条件”；新版把这句话拆成可核对的三个断言：预层给出“谁在归因”，势给出“哪里最优”，Moore + Gate 给出“哪些自报可采纳、如何不可绕过地提交”。</strong></p>
+</blockquote>
+<hr>
+<h2>8 · 结局：叙事完成时</h2>
+<blockquote>
+<p><strong>口径注记（不打断叙事；引用时必须带上）</strong></p>
+<ol>
+<li><strong>33 个声明</strong>：按值层 <code>BoundaryTheory</code> 口径，是 <strong>33 条定理/引理 + 7 个定义</strong>；全仓口径为 467 定理引理 / 90 定义 / 56 文件（另 CausModel 15 件）。两者不可混写。</li>
+<li><strong>(A: Caus^{op}\to\Delta^2)</strong>：这是 schema；具体取 <code>Simplex</code> 值的预层是建模输入 A6；<code>Attribution</code> 与 <code>Boundary</code> 的桥尚未形式化。<strong>注意</strong>：<code>P(Fin2)\setminus\{\emptyset\}</code> 反例否证的是“无条件报告同一性”，不是“自由范畴不能推出 (V)”；后者仍是 D-011 的开放任务。</li>
+<li><strong>(V) 的形式被迫</strong>：以 <strong>A7</strong>（维护成本连续加性）为前提；证明内核是 <code>map_real_smul</code>，不是自由范畴/万有性质的直接推论（见论文债 <strong>D-011</strong>）。“最小作用量/凝聚生成”是纲领动机与模型语境，不是 (V) 形式的机器证明前提。</li>
+<li><strong>(\kappa^*)</strong>：(\sqrt{\alpha C_F/c_0}) 与 (\pi\sqrt{\alpha/(3c_0)}) 在 (C_F=\pi^2/3) 时等价；机检的全局最小与唯一性见 <code>ValueLayerMin.V_global_min</code> / <code>V_eq_min_iff</code>。</li>
+<li><strong>(\sigma^*=1)</strong>：机检的是 (\sigma^*=1 \iff \pi^2\alpha=3C_0)；它不是对任意参数的普遍定律（<code>sigmaStar_not_forced_one</code>）。</li>
+<li><strong>Noether 守恒</strong>：机检的是其代数内核 <code>force_is_neg_gradient</code> / <code>energy_bracket_zero</code>；完整的 Noether 定理未在本形式化中陈述。</li>
+<li><strong>拓扑奇点</strong>：这是解释性读法；本层机检的是临界条件与势的全局最小，不是拓扑学意义上的奇点定理。</li>
+<li><strong>不可绕过</strong>：这是 Gate 的设计目标 + 13/13 有限状态参考实现；生产系统尚未验证。</li>
+<li><strong>弱/强口径</strong>：本文弱＝<code>c_R = c_R′ ⇔ R = R′</code>（结构互决定），强＝<code>R = Fix(c_I) ⇔ c_R = c_I</code>（联合不动点）；旧技术版（<code>边界如何成为系统能够辨识、表征并维护的自身组织条件_技术版_20261023.md</code>）§5.4 的 W（<code>R ⊆ Fix(c_R)</code>）不是本文的弱版本，勿混用。</li>
+</ol>
+</blockquote>
+<hr>
+<p>本研究纲领的目标是自主系统边界认知与形式化自指架构的深度理论演进，立足于将“自我意识的核心在于辨识、表征并维护自身与非自身边界”这一基础断言，转化为具备严格数学可证伪性与机器合规性的科学体系。整个理论框架摒弃了传统依靠外部日志或现象学假设的权宜之计，构建了一个从因果干预范畴到代数 Moore 家族的完整闭环。</p>
+<p>在范畴论与定量动力学层面上，系统以因果干预范畴的反变函子 <span class="math-inline" role="math">\(A: Caus^{op} \to \Delta^2\)</span> 为起点，将状态归属分布映射至归属单纯形中。在最小作用量原理与凝聚生成公理的纲领框架下，边界势能方程 <span class="math-inline" role="math">\(V(\kappa) = c_0\kappa + \alpha C_F/\kappa\)</span> 严格平衡了高锐度边界的高昂维护代价 <span class="math-inline" role="math">\(c_0\kappa\)</span> 与模糊边界带来的熵代价 <span class="math-inline" role="math">\(\alpha C_F/\kappa\)</span>。该势能在极小值点处锁定了最优锐度 <span class="math-inline" role="math">\(\kappa^* = \sqrt{\alpha C_F/c_0}\)</span>，并在无量纲临界准则 <span class="math-inline" role="math">\(\sigma^* = 1 \iff \pi^2\alpha = 3C_0\)</span> 下揭示了边界相变的拓扑奇点。这一连续动力学描绘了系统如何通过内部结构的主动调节来收敛其辨识边界。</p>
+<p>在形式化验证层面上，整个值层与结构层核心已在 Lean 4 + Mathlib（版本 v4.33.0）中实现了 33 个声明的完全机器校验，在机检范围内达到 0 sorry 与 0 axiom 的严密标准。其中涵盖了核心积分常数 <span class="math-inline" role="math">\(C_H = \int_{\mathbb{R}} h(\sigma(z)) dz = \pi^2/3\)</span> 的四阶段复杂求积链、Basel 定理重构的阶层谱 <span class="math-inline" role="math">\(\sum 1/(n+1)^2 = \pi^2/6\)</span>，以及 Noether 守恒的代数内核所支撑的自指自连续性守恒荷。这些形式化常数与定理为整个理论奠定了不可撼动的数学基石。</p>
+<p>在代数结构与系统工程层面上，为了克服纯动力学势能可能存在的现象学拟合局限，理论进一步收缩至纯粹的序理论与拓扑约束——即 Moore 家族（对任意交集封闭的子集族）。机器证明明确指出：弱版本（<span class="math-inline" role="math">\(c_R = c_{R'} \iff R = R'\)</span>）与强版本（<span class="math-inline" role="math">\(R = \mathrm{Fix}(c_I) \iff c_R = c_I\)</span>）的联合固定点关系依赖于 Moore 条件的严格满足。而一旦缺失该前置条件（例如现实中常见的阈值自报丢失了作为交集基底的顶元素 <span class="math-inline" role="math">\(\Omega\)</span>），无条件推广将被 Lean 显式构造的反例（如 <span class="math-inline" role="math">\(\mathcal{P}(\mathrm{Fin}\,2) \setminus \{\emptyset\}\)</span>）彻底证伪。这一严苛的负向控制不仅没有削弱纲领，反而确立了其实际工程落地的边界条件。</p>
+<p>最终，这一理论成果被落实为以不可绕过为目标的工程架构——一致性门控协议（Consistency Gate）。系统在面对动态输入时，不再允许执行简单的“计算边界 <span class="math-inline" role="math">\(\to\)</span> 写入日志 <span class="math-inline" role="math">\(\to\)</span> 执行动作”单向流水线，而是强制要求生成包含闭包算子 <span class="math-inline" role="math">\(C\)</span>、Moore 报告家族 <span class="math-inline" role="math">\(R\)</span> 以及版本证据链的候选状态包。只有当门控机制在数学上严格校验 <span class="math-inline" role="math">\(c_R = C\)</span> 且 <span class="math-inline" role="math">\(R\)</span> 属于 Moore 家族之后，系统才具备合法且不可拆解的原子级提交路径（Atomic Commit）。这种将范畴势能的动力学引导与代数 Moore 家族的逻辑门控在同一协议中融为一体的设计，使得边界不再是附属的外部描述，而成为系统能够辨识、表征并维护的自身组织条件。</p>
+<hr>
+<h2>附录 · 复现与定位</h2>
+<ul>
+<li>预层：<code>CausModel.Attribution</code>（<code>Simplex</code>、<code>attribution</code>、<code>attribution_unique</code>）。</li>
+<li>定量：<code>BoundaryTheory</code>、<code>ValueLayerMin</code>、<code>BoundaryBridge_layers</code>。</li>
+<li>代数：<code>匿名社区发布_20261023/02_Lean仓库/lean/ReportIdentityCore.lean</code>。</li>
+<li>工程：<code>匿名社区发布_20261023/03_架构/边界自报联合提交协议.md</code>、<code>gate_reference.py</code>。</li>
+<li>机器证明定位卡：<code>论文线/定位_V的范畴层机器证明_20261023.md</code>。</li>
+<li>统一仓验证：<code>71/71</code> 模块构建通过；0 <code>sorry</code> / 0 <code>axiom</code>；承重定理仅依赖 <code>[propext, Classical.choice, Quot.sound]</code>。</li>
+</ul>
+
+</main>
+
+<footer class="footer">
+  <div><a href="mind-boundary.zh.html">← 返回研究纲领</a> · <a href="mind-boundary-evidence.zh.html">证据与版本</a></div>
+  <div>原始 Markdown 样貌的 HTML 快照 · 公式由本地 MathJax 3.2.2 渲染 · 内容以 Markdown 源件为准</div>
+</footer>
+</body>
+</html>
