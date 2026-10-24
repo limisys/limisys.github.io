@@ -118,14 +118,18 @@ python3 build_entry_html.py</code></pre>
     <thead><tr><th>项</th><th>值</th></tr></thead>
     <tbody>
       <tr><td>仓库</td><td><code>https://github.com/limisys/boundary-axiom</code>（main，公开）</td></tr>
-      <tr><td>发布版本</td><td>tag <code>v1.1.0</code>，发布提交 <code>f01cf6f</code>；当前 main <code>931cc84</code>（其后仅有页面与存证元数据）</td></tr>
+      <tr><td>发布版本</td><td>tag <code>v1.1.0</code>，发布提交 <code>f01cf6f</code>；当前 main <code>f89313e</code>（其后仅有页面与存证元数据）</td></tr>
       <tr><td>公开树</td><td><code>report-core/</code>（报告同一性 6 文件 / 45 定理 / 13 定义）、<code>lean/</code>（完整验证体 56 / 467 / 90）、<code>vendor/CausModel/</code>（15 件）、<code>architecture/</code>、<code>docs/</code>、<code>data/</code>、<code>scripts/</code>、<code>site/</code></td></tr>
-      <tr><td>逐文件清单</td><td><code>MANIFEST.public.sha256</code>，186 条，可 <code>sha256sum -c</code> 复核</td></tr>
+      <tr><td>逐文件清单</td><td><code>MANIFEST.public.sha256</code>，逐文件一条，条目数随存证文件递增（发布时 186 条），可 <code>sha256sum -c</code> 复核</td></tr>
       <tr><td>旧件溯源</td><td>v0.1 锚点 <code>BoundaryTheory.lean</code>、旧 <code>README.md</code>、<code>README_CN.md</code>、<code>VERSION.md</code>、<code>docs/ML_SCENARIO_MAPPING.md</code> 已移入 <code>legacy/v0.1/</code>，未删除；README 有溯源说明</td></tr>
       <tr><td>发布快照</td><td><code>boundary-axiom-f01cf6f-v1.1.0.tar.gz</code>，SHA-256 <code>60b1dbdeef5364bbeddbcdcd240aa35acbfe4763e8824c530adfae77ccc1b64b</code></td></tr>
       <tr><td>数字存托</td><td>OpenTimestamps 锚定 Bitcoin，证明与校验和在仓库 <code>ots/</code>；<code>ots verify</code> 可验，Bitcoin 确认完成前为 PendingAttestation</td></tr>
+      <tr><td>创世摘要</td><td><code>genesis/GENESIS.json</code>，SHA-256 <code>f6a207eb0eda8fd2c0971f30835afbd5a20436eaf603bb8ad461611d060861ac</code>；该文件绑定发布包哈希、提交 <code>f01cf6f</code>、184 个文件与目录 Merkle 根 <code>161e48a6…39eaba</code></td></tr>
+      <tr><td>双重时间戳</td><td>① RFC 3161 时间戳（freetsa.org）签发于 <strong>2026-10-24 03:48:36 GMT</strong>，序列号 <code>0x0965B6C4</code>，签名已用随附 CA 证书验证通过；② OpenTimestamps Bitcoin 锚定</td></tr>
     </tbody>
   </table>
+  <p><strong>创世时间戳。</strong> 整套发布包由单一摘要固定：<code>genesis/GENESIS.json</code> 以 SHA-256 <code>f6a207eb…0861ac</code> 标识，其内容涵盖发布包哈希、发布提交、文件数与目录 Merkle 根，因此任何一处内容变动都会使该摘要失效。该摘要同时挂两道彼此独立的时间锚：RFC 3161 时间戳由 freetsa.org 在签发时刻即时生效，OpenTimestamps 锚在 Bitcoin 区块确认后转为可独立验证的证明。独立研究的时间优先性以这两道锚中更早可证者为据，不依赖任何单一机构。</p>
+  <p class="small">验证：<code>sha256sum -c genesis/GENESIS.sha256</code>；<code>openssl ts -verify -data genesis/GENESIS.json -in genesis/GENESIS.json.tsr -CAfile genesis/tsa-cacert.pem</code> 应返回 <code>Verification: OK</code>。</p>
   <p class="small">Gate 口径以参考实现实测为准：<code>architecture/gate_reference.py</code> 14/14（含 R6 候选生成包装）。此前页面与部分文档中的 13/13 为未含 R6 的旧口径，已统一为 14/14。</p>
 
   <div class="footer">
