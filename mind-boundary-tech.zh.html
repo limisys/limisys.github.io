@@ -510,7 +510,7 @@ theorem BoundaryBridge.value_layer_form_forced ...
 </ul>
 <p><strong>做了（工程参考实现）：</strong></p>
 <ul>
-<li><code>gate_reference.py</code> 在有限状态空间上跑通正例、R1–R7、崩溃注入、动作闸门，13/13 通过；</li>
+<li><code>gate_reference.py</code> 在有限状态空间上跑通正例、R1–R7、崩溃注入、动作闸门，14/14 通过；</li>
 <li>这证明协议<strong>可执行</strong>，不证明它在生产 agent 上不可绕过。</li>
 </ul>
 <p><strong>没证：</strong></p>
@@ -673,7 +673,7 @@ theorem BoundaryBridge.value_layer_form_forced ...
 <tr>
 <td>3</td>
 <td><code>ReportIdentityCore.Moore</code> / <code>moore_iff_exists_closure</code></td>
-<td><code>匿名社区发布_20261023/02_Lean仓库/lean/ReportIdentityCore.lean:17</code> / <code>:120</code></td>
+<td><code>lean/ReportIdentityCore.lean:17</code> / <code>:120</code></td>
 <td>机检（v1.1）</td>
 </tr>
 <tr>
@@ -691,8 +691,8 @@ theorem BoundaryBridge.value_layer_form_forced ...
 <tr>
 <td>3</td>
 <td>Gate 协议 / 参考实现</td>
-<td><code>匿名社区发布_20261023/03_架构/</code></td>
-<td>设计 + 13/13 参考实现</td>
+<td><code>architecture/</code></td>
+<td>设计 + 14/14 参考实现</td>
 </tr>
 </tbody>
 </table></div>
@@ -731,7 +731,7 @@ theorem BoundaryBridge.value_layer_form_forced ...
 <li><strong>(\sigma^*=1)</strong>：机检的是 (\sigma^*=1 \iff \pi^2\alpha=3C_0)；它不是对任意参数的普遍定律（<code>sigmaStar_not_forced_one</code>）。</li>
 <li><strong>Noether 守恒</strong>：机检的是其代数内核 <code>force_is_neg_gradient</code> / <code>energy_bracket_zero</code>；完整的 Noether 定理未在本形式化中陈述。</li>
 <li><strong>拓扑奇点</strong>：这是解释性读法；本层机检的是临界条件与势的全局最小，不是拓扑学意义上的奇点定理。</li>
-<li><strong>不可绕过</strong>：这是 Gate 的设计目标 + 13/13 有限状态参考实现；生产系统尚未验证。</li>
+<li><strong>不可绕过</strong>：这是 Gate 的设计目标 + 14/14 有限状态参考实现；生产系统尚未验证。</li>
 <li><strong>弱/强口径</strong>：本文弱＝<code>c_R = c_R′ ⇔ R = R′</code>（结构互决定），强＝<code>R = Fix(c_I) ⇔ c_R = c_I</code>（联合不动点）；旧技术版（<code>边界如何成为系统能够辨识、表征并维护的自身组织条件_技术版_20261023.md</code>）§5.4 的 W（<code>R ⊆ Fix(c_R)</code>）不是本文的弱版本，勿混用。</li>
 </ol>
 </blockquote>
@@ -746,8 +746,8 @@ theorem BoundaryBridge.value_layer_form_forced ...
 <ul>
 <li>预层：<code>CausModel.Attribution</code>（<code>Simplex</code>、<code>attribution</code>、<code>attribution_unique</code>）。</li>
 <li>定量：<code>BoundaryTheory</code>、<code>ValueLayerMin</code>、<code>BoundaryBridge_layers</code>。</li>
-<li>代数：<code>匿名社区发布_20261023/02_Lean仓库/lean/ReportIdentityCore.lean</code>。</li>
-<li>工程：<code>匿名社区发布_20261023/03_架构/边界自报联合提交协议.md</code>、<code>gate_reference.py</code>。</li>
+<li>代数：<code>lean/ReportIdentityCore.lean</code>。</li>
+<li>工程：<code>architecture/边界自报联合提交协议.md</code>、<code>gate_reference.py</code>。</li>
 <li>机器证明定位卡：<code>论文线/定位_V的范畴层机器证明_20261023.md</code>。</li>
 <li>统一仓验证：<code>71/71</code> 模块构建通过；0 <code>sorry</code> / 0 <code>axiom</code>；承重定理仅依赖 <code>[propext, Classical.choice, Quot.sound]</code>。</li>
 </ul>
