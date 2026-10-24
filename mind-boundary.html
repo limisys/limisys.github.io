@@ -3,205 +3,346 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Mind Has a Boundary: a research programme on how boundaries become conditions of organization that a system can identify, represent, and maintain.">
-<link rel="canonical" href="https://limisys.github.io/mind-boundary.html">
-<meta name="author" content="Research programme working document">
+<meta name="description" content="The Mind Has a Boundary: A Research Programme. How does a boundary become a condition of a system's own organization that it can identify, represent, and maintain?">
 <title>The Mind Has a Boundary: A Research Programme</title>
 <style>
-:root{--paper:#f5f1e8;--surface:#fffdf8;--ink:#22211d;--muted:#625f56;--line:#d8d0c2;--rust:#8f3c2e;--blue:#265b68;--green:#286b4c;--amber:#8a5c19;--shadow:0 14px 40px rgba(38,31,20,.08);--serif:Georgia,"Iowan Old Style","Palatino Linotype",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:84px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.75;-webkit-font-smoothing:antialiased}a{color:var(--rust);text-underline-offset:3px}.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px clamp(16px,4vw,48px);background:rgba(245,241,232,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);font-family:var(--sans)}.brand{font-size:.73rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);white-space:nowrap}.bar nav{display:flex;flex-wrap:wrap;gap:14px}.bar nav a{font-size:.78rem;color:var(--muted);text-decoration:none}.bar nav a:hover{color:var(--rust)}.wrap{display:grid;grid-template-columns:220px minmax(0,850px);gap:42px;max-width:1200px;margin:0 auto;padding:46px 26px 76px;align-items:start}.toc{position:sticky;top:82px;padding:14px 0;font: .8rem/1.6 var(--sans)}.toc b{display:block;margin:0 0 10px;color:var(--muted);font-size:.67rem;letter-spacing:.16em;text-transform:uppercase}.toc a{display:block;padding:5px 10px;border-left:2px solid transparent;color:var(--muted);text-decoration:none}.toc a:hover{color:var(--rust);border-left-color:var(--rust);background:rgba(143,60,46,.045)}main{min-width:0}.hero,.section{background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.hero{padding:clamp(26px,5vw,58px);margin-bottom:22px}.eyebrow{font:800 .7rem/1.4 var(--sans);letter-spacing:.19em;text-transform:uppercase;color:var(--rust)}h1{font-size:clamp(2.35rem,5.4vw,4.5rem);line-height:1.04;letter-spacing:-.045em;font-weight:600;margin:18px 0 16px;max-width:780px} .subtitle{font-size:clamp(1.1rem,2vw,1.4rem);line-height:1.5;color:var(--blue);max-width:730px;margin:0 0 28px}.lead{font-size:1.16rem;line-height:1.75;max-width:760px}.rule{height:1px;background:var(--line);margin:26px 0}.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;font: .78rem/1.55 var(--sans);color:var(--muted)}.meta span{display:block;color:var(--ink);font-weight:750;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}.statement{padding:17px 20px;border-left:4px solid var(--rust);background:#f5eee3;border-radius:0 10px 10px 0;font-size:1.05rem}.section{padding:clamp(23px,4vw,40px);margin-bottom:20px}.section h2{font:750 1.42rem/1.3 var(--sans);letter-spacing:-.025em;margin:0 0 20px;padding-bottom:13px;border-bottom:1px solid var(--line)}.section h3{font:750 1.03rem/1.4 var(--sans);color:var(--blue);margin:28px 0 10px}.section p{margin:.6em 0 1em}.section ul,.section ol{padding-left:1.35rem}.section li{margin:.45em 0}.section li::marker{color:var(--rust)}.tag{display:inline-block;vertical-align:middle;margin:0 6px 5px 0;padding:4px 8px;border-radius:999px;font:750 .66rem/1.2 var(--sans);letter-spacing:.04em;text-transform:uppercase}.tag.premise{color:#773428;background:#f2dfd8}.tag.formal{color:#1f5360;background:#dcebee}.tag.machine{color:#266347;background:#dcece2}.tag.open{color:#7d5316;background:#f3e7c8}.tag.limit{color:#504c43;background:#e9e4da}table{width:100%;border-collapse:collapse;margin:20px 0;font: .86rem/1.55 var(--sans)}th{text-align:left;background:#eee6d8;color:#28251f;font-size:.74rem;letter-spacing:.03em}th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:nth-child(even){background:rgba(238,230,216,.28)}.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:20px 0}.scroll table{min-width:570px;margin:0}.diagram{display:grid;gap:10px;max-width:650px;margin:22px auto;font:700 .85rem/1.45 var(--sans);text-align:center}.node{padding:15px 18px;background:#f0e8dc;border:1px solid var(--line);border-radius:10px}.node.emph{background:#e0edf0;border-color:#b3cbd0;color:#204c58}.node.gate{background:#f3e4d9;border-color:#e0c0b3;color:#7b3428}.arrow{color:var(--rust);font-size:1.2rem;line-height:1}.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.mini{padding:17px;border:1px solid var(--line);border-radius:12px;background:#fffaf1}.mini h3{margin:0 0 8px}.math{padding:14px 16px;border-radius:9px;background:#222b32;color:#f1ede5;font: .9rem/1.7 var(--mono);overflow-x:auto;margin:15px 0}.note{padding:17px 19px;border:1px solid #d8c9ac;border-radius:10px;background:#fbf3df}.note strong{color:#7d5316}.critical{padding:18px 20px;border:1px solid #d9b5a9;border-left:4px solid var(--rust);border-radius:10px;background:#fbefea}.status{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0}.status div{padding:14px;border:1px solid var(--line);border-radius:10px;background:#fffaf1}.status b{display:block;font:750 .76rem var(--sans);margin-bottom:5px}.status p{font: .8rem/1.5 var(--sans);color:var(--muted);margin:0}.footer{color:var(--muted);font: .78rem/1.6 var(--sans);padding:18px 4px}.footlinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}.footlinks a{font-weight:700;text-decoration:none}code{font-family:var(--mono);font-size:.88em;overflow-wrap:anywhere}.small{font-size:.86rem;color:var(--muted)}
-@media(max-width:950px){.wrap{grid-template-columns:1fr;gap:18px;padding:26px 15px 48px}.toc{position:static;border:1px solid var(--line);border-radius:12px;padding:15px;background:rgba(255,253,248,.65)}.toc div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px}.toc a{font-size:.76rem}.bar nav{display:none}.meta{grid-template-columns:1fr}.status{grid-template-columns:1fr}}@media(max-width:600px){.two-col{grid-template-columns:1fr}.section{border-radius:13px}.hero{border-radius:13px}.brand{white-space:normal}h1{font-size:2.55rem}table{font-size:.8rem}}@media print{body{background:#fff}.bar,.toc{display:none}.wrap{display:block;max-width:none;padding:0}.hero,.section{box-shadow:none;break-inside:avoid;border:0;border-radius:0;padding:20px 0}.section{break-inside:auto}a{color:inherit;text-decoration:none}.hero{border-bottom:1px solid #aaa}.math{background:#eee;color:#111}.section h2{break-after:avoid}}
+:root {
+  color-scheme: light;
+  --ink: #202925;
+  --muted: #5b665f;
+  --paper: #f6f4ee;
+  --surface: #fffefa;
+  --line: #dcded5;
+  --accent: #285f60;
+  --accent-soft: #e9f0eb;
+  --warm: #8b4d37;
+  --warm-soft: #f5ece3;
+  --navy: #1d3438;
+  --max: 1040px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.78 Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+header {
+  background: var(--navy);
+  color: #f7f5ed;
+  padding: 55px 24px 43px;
+}
+.hero, main, footer { max-width: var(--max); margin: 0 auto; }
+.eyebrow, .meta, nav, h2, h3, .label, table, .diagram, .step, .decision, .small {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: #b8d0c6;
+  font-size: .72rem;
+  font-weight: 750;
+}
+h1 {
+  max-width: 850px;
+  margin: 17px 0 14px;
+  font-size: clamp(2.7rem, 7vw, 4.8rem);
+  line-height: 1.04;
+  font-weight: 600;
+  letter-spacing: -.045em;
+}
+.subtitle {
+  max-width: 850px;
+  margin: 0;
+  font-size: clamp(1.12rem, 2.4vw, 1.45rem);
+  line-height: 1.55;
+  color: #e0e8e1;
+}
+.meta { margin-top: 25px; color: #bdcdc5; font-size: .76rem; }
+main { padding: 30px 24px 65px; }
+.intro, section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: clamp(22px, 4vw, 38px);
+  margin-bottom: 20px;
+}
+.intro { border-top: 3px solid var(--accent); }
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+.lead { font-size: 1.09rem; }
+.claim {
+  margin: 20px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--warm);
+  border-radius: 0 7px 7px 0;
+  background: var(--warm-soft);
+  font-size: 1.08rem;
+}
+.steps { padding-left: 1.35rem; margin: 17px 0; }
+.steps li { margin: .45rem 0; padding-left: .2rem; }
+.steps li::marker { color: var(--accent); font-weight: 700; }
+h2 {
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: #274a49;
+  font-size: 1.52rem;
+  line-height: 1.3;
+  letter-spacing: -.025em;
+}
+h3 { margin: 23px 0 8px; color: var(--accent); font-size: 1.02rem; line-height: 1.4; }
+.table-wrap { overflow-x: auto; margin: 20px 0; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; line-height: 1.55; }
+th, td { text-align: left; vertical-align: top; padding: 11px 12px; border: 1px solid var(--line); }
+th { background: var(--accent-soft); font-size: .78rem; }
+.flow { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; margin: 20px 0; }
+.step {
+  flex: 1 1 135px;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 58px; padding: 12px 10px;
+  text-align: center; font-size: .82rem; font-weight: 650; line-height: 1.45;
+  color: #285252; background: #f0f5f0; border: 1px solid #c9d8d0; border-radius: 7px;
+}
+.arrow { align-self: center; color: var(--warm); font: 750 1.15rem system-ui, sans-serif; }
+.note { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 15px 18px; margin: 20px 0; }
+.note strong { color: #285252; }
+.diagram {
+  margin: 21px 0; padding: 20px;
+  border: 1px solid var(--line); border-radius: 9px; background: #fcfcf7;
+  font-size: .82rem; line-height: 1.45;
+}
+.diagram .row { display: flex; justify-content: center; gap: 9px; flex-wrap: wrap; }
+.diagram .box { flex: 1 1 150px; max-width: 250px; padding: 12px 13px; text-align: center; background: #f0f5f0; border: 1px solid #c9d8d0; border-radius: 6px; }
+.diagram .down { text-align: center; color: var(--warm); font-size: 1.2rem; line-height: 1.7; }
+.diagram .decision { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.diagram .decision span { padding: 9px 13px; background: #eaf1eb; border-radius: 5px; }
+.diagram .decision span:last-child { background: var(--warm-soft); }
+code, .math { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .88em; }
+code { overflow-wrap: anywhere; }
+footer { padding: 0 24px 32px; color: var(--muted); font: .75rem/1.6 system-ui, sans-serif; }
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  header { padding: 37px 19px 32px; }
+  main { padding: 17px 12px 45px; }
+  .intro, section { padding: 22px 18px; }
+  .diagram { padding: 13px; }
+  .arrow { width: 100%; text-align: center; transform: rotate(90deg); }
+}
+@media print {
+  body { background: white; font-size: 11pt; }
+  header { background: white; color: #111; border-bottom: 2px solid #333; }
+  .subtitle, .meta, .eyebrow { color: #333; }
+  main { padding: 16px 0; }
+  .intro, section { break-inside: avoid; box-shadow: none; }
+  footer { padding-left: 0; }
+}
+</style>
+<link rel="canonical" href="https://limisys.github.io/mind-boundary.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Mind Has a Boundary · Xueqiang Gao">
+<meta property="og:title" content="The Mind Has a Boundary: A Research Programme">
+<meta property="og:description" content="How a boundary becomes a condition of a system's own organization that it can identify, represent, and maintain.">
+<meta property="og:url" content="https://limisys.github.io/mind-boundary.html">
+<meta property="og:image" content="https://limisys.github.io/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+.sitebar{background:#142426;color:#cfdcd4;font:12px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;border-bottom:1px solid rgba(255,255,255,.12)}
+.sitebar-inner{max-width:1040px;margin:0 auto;padding:11px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.sitebar a{color:#cfdcd4;text-decoration:none}
+.sitebar a:hover{color:#fff}
+.sitebar .brand{color:#f7f5ed;font-weight:750;letter-spacing:.1em;white-space:nowrap}
+.sitebar .spacer{margin-left:auto}
+@media (max-width:620px){.sitebar-inner{padding:10px 14px;gap:12px}.sitebar .spacer{display:none}}
 </style>
 </head>
 <body>
-<header class="bar">
-  <div class="brand">Mind &amp; Boundary · Research Programme</div>
-  <nav aria-label="Primary navigation"><a href="mind-boundary.zh.html">中文</a><a href="#question">The question</a><a href="#formal">Formal core</a><a href="#evidence">Evidence</a><a href="#limits">Limits</a><a href="#challenge">Challenge it</a></nav>
-</header>
-<div class="wrap">
-  <aside class="toc" aria-label="Contents">
-    <b>Contents</b>
-    <div>
-      <a href="#question">1. The central question</a>
-      <a href="#premise">2. Starting premise</a>
-      <a href="#operations">3. Three operations</a>
-      <a href="#report">4. Boundary and self-report</a>
-      <a href="#formal">5. Formal core</a>
-      <a href="#evidence">6. Current evidence</a>
-      <a href="#engineering">7. Engineering direction</a>
-      <a href="#limits">8. Limits and open questions</a>
-      <a href="#audit">9. A point to resolve</a>
-      <a href="#challenge">10. How to challenge this programme</a>
-    </div>
-  </aside>
-  <main>
-    <header class="hero" id="top">
-      <div class="eyebrow">An evolving interdisciplinary research programme</div>
-      <h1>The Mind Has a Boundary</h1>
-      <p class="subtitle">A Research Programme on How Boundaries Become Conditions of Organization That a System Can Identify, Represent, and Maintain</p>
-      <p class="lead">The central question is not simply whether a system has a boundary. It is how a boundary can become part of the system’s own organization: something the system can distinguish, represent within itself, and preserve or revise as its state changes.</p>
-      <div class="rule"></div>
-      <div class="meta">
-        <div><span>Document type</span>Programme-level research statement</div>
-        <div><span>Version</span>English working edition · 24 October 2026</div>
-        <div><span>Scope</span>Philosophical premise, formal structures, engineering direction</div>
-      </div>
-      <div class="rule"></div>
-      <div class="statement">The programme starts from a philosophical premise, develops formal objects for boundary and self-report, studies the conditions under which they determine one another, and asks whether those constraints can be implemented in an autonomous system.</div>
-      <p class="small">This document presents the research as reported in the programme overview and its technical supplement. It distinguishes the programme’s starting premise, machine-checked mathematical results, toy-system findings, and engineering goals that remain unimplemented.</p>
-    </header>
 
-    <section class="section" id="question">
-      <h2>1. The central question</h2>
-      <p>A system may be described as having a boundary because an observer can draw a line around it, classify its states, or compute a distinction between what belongs to it and what does not. But an externally assigned boundary is not yet a boundary that plays a role in the system’s own organization.</p>
-      <p>The programme therefore asks a more demanding question:</p>
-      <div class="statement"><strong>How can a boundary become a condition of organization that the system itself can identify, represent, and maintain?</strong></div>
-      <p>This change in the question matters. It shifts the focus from locating a boundary to understanding the conditions under which a boundary is recognized and sustained within a system. The target is not a universal proof that every autonomous system must have one particular kind of boundary. The immediate target is to define a class of systems, determine the structural properties of that class, and test whether those properties can guide an implementation.</p>
-    </section>
-
-    <section class="section" id="premise">
-      <h2>2. The starting premise: self-consciousness and boundary</h2>
-      <p><span class="tag premise">Programme premise</span></p>
-      <div class="statement">The core content of self-consciousness is the identification, representation, and maintenance of the boundary between self and non-self.</div>
-      <p>This is the programme’s starting commitment, not a theorem established by formalization. Lean can verify that a mathematical conclusion follows from definitions and assumptions encoded in a formal system; it cannot, by itself, establish that this philosophical premise is true of human consciousness or of every possible mind.</p>
-      <p>The premise constrains the questions the programme pursues. Research within this programme should address at least one of three operations: identifying a self/non-self distinction, representing that distinction within the system, or maintaining and updating it as conditions change.</p>
-      <p>The programme does not need to settle every question about consciousness before beginning. It can instead make its proposed architecture precise, state its conditions, identify counterexamples, and investigate where the architecture succeeds or fails.</p>
-    </section>
-
-    <section class="section" id="operations">
-      <h2>3. Three operations, one research problem</h2>
-      <p>The three verbs in the starting premise define three connected research tasks. They should not be treated as three independent modules by default; the programme investigates whether they can be understood as aspects of one organized structure.</p>
-      <div class="scroll"><table>
-        <thead><tr><th>Operation</th><th>Question for the system</th><th>Formal or engineering focus</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Identify</strong></td><td>What counts as part of the system, and what does not?</td><td>A boundary decision or boundary operator.</td></tr>
-          <tr><td><strong>Represent</strong></td><td>How is that distinction encoded within the system’s own organization?</td><td>A family of reports and an internal representation of boundary status.</td></tr>
-          <tr><td><strong>Maintain</strong></td><td>How is the distinction preserved or updated when states and inputs change?</td><td>State transitions, consistency conditions, closure properties, and runtime invariants.</td></tr>
-        </tbody>
-      </table></div>
-      <p>The motivating concern is a mismatch between a system’s actual boundary decision and what it reports about itself. An external log may be stale, inaccurate, or inconsistent with the system’s current state. The programme asks what architectural constraints would make such a mismatch detectable or prevent it from being accepted as a valid state.</p>
-    </section>
-
-    <section class="section" id="report">
-      <h2>4. From an external report to self-representation</h2>
-      <p>A conventional pipeline can calculate a boundary and then emit a report about it. In that arrangement, the report is downstream output: it may be useful, but it can in principle be separated from the state it describes.</p>
-      <div class="two-col">
-        <div class="mini"><h3>Ordinary reporting pipeline</h3>
-          <div class="diagram"><div class="node">System state</div><div class="arrow">↓</div><div class="node">Boundary calculation</div><div class="arrow">↓</div><div class="node">Report or log</div></div>
-          <p class="small">The description can drift away from the state it describes.</p>
-        </div>
-        <div class="mini"><h3>Target architecture</h3>
-          <div class="diagram"><div class="node">State and input</div><div class="arrow">↓</div><div class="node emph">Joint boundary–report transition</div><div class="arrow">↓</div><div class="node emph">Boundary · self-representation · maintenance rules</div><div class="arrow">↓</div><div class="node gate">Consistency check → commit, reject, or review</div></div>
-          <p class="small">The intended constraint is that a boundary-known state without its required self-report cannot be accepted as a valid committed state.</p>
-        </div>
-      </div>
-      <p>The critical idea is not merely to add a reporting module. It is to constrain the relationship between boundary determination and self-report. The programme distinguishes a weak mathematical relation from a stronger identity claim, and it treats their assumptions as part of the result rather than as dispensable technical details.</p>
-      <p>At present, the joint-transition diagram describes the engineering target. The technical supplement reports a deterministic toy-machine implementation of a runtime gate, but it explicitly does not claim that the corresponding joint-commit mechanism has been deployed in the production execution path.</p>
-    </section>
-
-    <section class="section" id="formal">
-      <h2>5. The formal core: boundary operators and report families</h2>
-      <p>The technical programme represents boundary structure using closure operators. A closure operator expands a state or set to its closure, behaves monotonically, and is idempotent: applying it twice has the same effect as applying it once. Its fixed points are the objects already closed under that operator.</p>
-      <h3>5.1 A boundary generated by interventions</h3>
-      <p>Let Ω be a state space and I a family of interventions or transformations. A set T is invariant under I when every intervention in I maps T into itself. The operator c<sub>I</sub> is defined as the smallest I-invariant set containing a given set S:</p>
-      <div class="math">c<sub>I</sub>(S) = ⋂ { T ⊇ S : T is invariant under every intervention in I }</div>
-      <p>The formal supplement reports machine-checked results showing that c<sub>I</sub> is a closure operator and that its fixed points are precisely the I-invariant sets. The boundary structure is therefore generated from a specified family of interventions rather than simply assumed at the outset.</p>
-      <h3>5.2 A boundary induced by reports</h3>
-      <p>A report family R is a collection of subsets of Ω that the system treats as closed or as belonging within a boundary. The programme defines a second closure operator, c<sub>R</sub>, by intersecting the reported sets that contain S:</p>
-      <div class="math">c<sub>R</sub>(S) = ⋂ { T ⊇ S : T ∈ R }</div>
-      <p>This construction formalizes the direction from representation to boundary: given a family of reports, what closure operator do those reports induce?</p>
-      <h3>5.3 The conditional identity result</h3>
-      <p>The technical supplement reports the following machine-checked result. For upward-closed report families R and R′:</p>
-      <div class="math">c<sub>R</sub> = c<sub>R′</sub>  if and only if  R = R′</div>
-      <p>For an upward-closed report family R, it also reports the corresponding criterion for a specific intervention-generated boundary:</p>
-      <div class="math">R = Fix(c<sub>I</sub>)  if and only if  c<sub>R</sub> = c<sub>I</sub></div>
-      <p>The significance is conditional. Within the stated class, equality of the induced closure operators corresponds to equality of the report families. This gives a precise mathematical form to a version of the claim that boundary structure and self-report cannot be arbitrarily separated.</p>
-      <h3>5.4 Weak inclusion is not strong identity</h3>
-      <p>The supplement distinguishes the unconditional relation R ⊆ Fix(c<sub>R</sub>) from the stronger identity claim. The former is reported as machine-checked without the upward-closure premise. The stronger equivalence requires that premise, and its unconditional extension is not supported: the project records finite countermodels and a negative toy-machine criterion.</p>
-      <div class="note"><strong>Interpretive rule:</strong> the conditional theorem is not a universal theorem about minds or autonomous agents. It is a result about specified mathematical objects under a stated structural condition. Whether the condition is natural, satisfiable, and appropriate for the intended systems is a further research question.</div>
-    </section>
-
-    <section class="section" id="evidence">
-      <h2>6. Current evidence and formalization status</h2>
-      <p>The project’s technical report records a substantial Lean 4 / Mathlib development. The figures below are reported by the project’s own repository audit; they are not an independent third-party reproduction of the repository.</p>
-      <div class="status">
-        <div><b>56 source files</b><p>Reported in the unified formalization repository.</p></div>
-        <div><b>467 theorems and lemmas</b><p>Repository-wide count under the stated audit convention.</p></div>
-        <div><b>90 definitions</b><p>Reported definitions and structures in the same audit.</p></div>
-      </div>
-      <p>The audit reports zero <code>sorry</code> placeholders and no project-declared axioms. The build record also lists the standard Lean foundational dependencies <code>propext</code>, <code>Classical.choice</code>, and <code>Quot.sound</code>. The supplement reports a clean build across 71 modules. These details matter for reproducibility, but they do not by themselves establish the philosophical premise or its empirical adequacy.</p>
-      <h3>6.1 The toy-machine result</h3>
-      <p>The engineering experiment uses a deterministic model with three states, interpreted as self, external, and unknown. Seven preregistered criteria are reported: six pass and one—the canonical identity criterion—returns a negative result. This is not presented as a bug to be hidden. It indicates that, in this structure, the fixed-point family generated by the interventions is not upward-closed, so the report family required by the stronger identity condition cannot be found.</p>
-      <p>The runtime gate was also exercised on the toy machine. The reported number of illegal states rises monotonically from 0 to 1, 2, and 3 as the threshold is varied across the tested settings. This is evidence that the gate can trigger under the toy model’s definitions; it is not evidence that a real autonomous agent already has the proposed organization.</p>
-    </section>
-
-    <section class="section" id="engineering">
-      <h2>7. The engineering direction</h2>
-      <p>The proposed implementation turns a formal condition into a runtime decision. In the technical design, a state in which the boundary is known but the required self-report is absent is illegal. A state with no boundary decision is routed for review; a state with both a known boundary and a present report may proceed, subject to the design’s consistency checks.</p>
-      <div class="scroll"><table>
-        <thead><tr><th>Boundary status</th><th>Self-report status</th><th>Target handling</th></tr></thead>
-        <tbody>
-          <tr><td>Known</td><td>Absent</td><td><strong>Reject as an illegal boundary state</strong></td></tr>
-          <tr><td>Absent or unresolved</td><td>Any</td><td>Review or request a boundary decision</td></tr>
-          <tr><td>Known</td><td>Present</td><td>Proceed only after the required consistency checks</td></tr>
-        </tbody>
-      </table></div>
-      <p>The engineering claim must remain calibrated. The toy gate is reported as implemented and tested. A production-level joint-commit mechanism—one that makes the boundary decision and self-report inseparable in the actual execution path—is still a target, not a completed result.</p>
-    </section>
-
-    <section class="section" id="limits">
-      <h2>8. Limits and open research questions</h2>
-      <p>The strongest version of this programme will depend not only on its positive results but on how clearly it identifies what those results do not yet establish.</p>
-      <ul>
-        <li><strong>The philosophical premise remains a premise.</strong> Formalization does not establish that boundary recognition, representation, and maintenance are the essence of self-consciousness.</li>
-        <li><strong>The formal identity result is conditional.</strong> The upward-closure assumption must be justified for the report classes that the programme intends to model.</li>
-        <li><strong>A positive witness is needed.</strong> The technical supplement identifies the need for a structure in which the stated condition and operator equality hold together, so the strong version is not merely true vacuously for the intended application.</li>
-        <li><strong>Two boundary constructions remain unconnected.</strong> The reported identity results concern c<sub>I</sub>, the intervention-generated operator. The connection to the separately described, core-derived operator c<sub>band</sub> remains unproved.</li>
-        <li><strong>The bridge to actual systems remains open.</strong> Results in finite mathematical models do not yet establish the same organization in biological minds or real autonomous agents.</li>
-        <li><strong>The production implementation remains incomplete.</strong> The next engineering step is to integrate the gate into a real execution path and measure both violations prevented and valid states wrongly rejected.</li>
-      </ul>
-      <p>These are not reasons to abandon the programme. They determine what the next research steps must accomplish if the formal architecture is to become an explanatory account of autonomous cognition.</p>
-    </section>
-
-    <section class="section" id="audit">
-      <h2>9. A mathematical point that needs resolution</h2>
-      <div class="critical"><strong>Issue for clarification.</strong> In the technical supplement, upward closure is defined by S ∈ R and S ⊆ T implying T ∈ R. The same document presents the threshold family R = {T : for every x ∈ T, w(x) ≥ θ} as an example that automatically satisfies upward closure. Under ordinary subset inclusion, that implication does not generally hold: a superset can add an element whose weight is below θ. As written, the displayed threshold family is generally downward-closed, not upward-closed.</div>
-      <p>This point does not, by itself, refute the conditional theorem about upward-closed report families. It does affect the proposed motivation for the premise and its applicability to the intended reports. Before publication, the programme should clarify whether a different report semantics or ordering is intended, or whether the family’s definition or inequality needs to be revised.</p>
-      <p>The toy-machine negative result makes this question especially important. A strong identity theorem can be formally correct and still have limited practical reach if the required premise fails for the report structures the target system naturally generates. Establishing a meaningful class of admissible reports is therefore a central theoretical task, not a minor implementation detail.</p>
-    </section>
-
-    <section class="section" id="challenge">
-      <h2>10. How to challenge this research programme</h2>
-      <p>This programme should be evaluated by the quality of its definitions, the validity and scope of its formal results, and the evidence connecting those results to autonomous systems—not by the ambition of its title.</p>
-      <p>Useful challenges include:</p>
-      <ol>
-        <li><strong>Challenge the premise.</strong> Is the identification, representation, and maintenance of a self/non-self boundary a plausible account of a core feature of self-consciousness? What counterexample would show that it is incomplete or misdirected?</li>
-        <li><strong>Challenge the formalization.</strong> Are the operators and report families faithful representations of the intended concepts? Are the hypotheses necessary, sufficient, and satisfiable in non-trivial cases?</li>
-        <li><strong>Challenge the bridge.</strong> What argument or experiment would connect the formal boundary to the boundary a real system uses to organize and regulate itself?</li>
-        <li><strong>Challenge the implementation.</strong> Does joint commitment improve consistency in a real execution path? What are the failure rate, false-rejection rate, and performance cost compared with a system whose reports can be updated independently?</li>
-      </ol>
-      <p>A useful criticism should identify the claim under challenge, its assumptions, and the evidence that would count for or against it. A counterexample satisfying all stated premises is particularly valuable; so is a system that appears to meet the proposed functional criteria without the proposed architecture.</p>
-      <div class="statement">The aim is not to make the claim immune to criticism. It is to make the claim precise enough that criticism can help determine what survives.</div>
-    </section>
-
-    <section class="section" id="conversation">
-      <h2>Questions for the next stage of dialogue</h2>
-      <p>The next stage of this programme can be organized around four questions:</p>
-      <ul>
-        <li>What is the most defensible interpretation of “boundary” that preserves the philosophical motivation without confusing it with a merely spatial border?</li>
-        <li>What class of report families makes upward closure natural, and how should reports with graded or noisy readings be represented?</li>
-        <li>Can the intervention-generated operator c<sub>I</sub> be formally connected to c<sub>band</sub>, or does a counterexample show that they encode different kinds of boundary?</li>
-        <li>What experiment—potentially involving a feedback-controlled autonomous system—would distinguish a system that merely reports a boundary from one whose boundary and self-report are constrained by a common transition?</li>
-      </ul>
-      <p>These questions are intended as entry points for continued research, not as assumptions whose answers are already known.</p>
-    </section>
-
-    <footer class="footer">
-      <strong>The Mind Has a Boundary: A Research Programme</strong><br>
-      English working edition based on the programme overview and technical supplement supplied for this discussion. Formalization counts, theorem status, and toy-machine results are presented as reported by the project. No independent repository build or external empirical validation is claimed here.
-      <div class="footlinks"><a href="#top">Back to top ↑</a><a href="#audit">Review the mathematical issue</a><a href="#challenge">How to challenge the programme</a></div>
-    </footer>
-  </main>
+<div class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="mind-boundary.html">The Mind Has a Boundary</a>
+    <span class="spacer"></span>
+    <a href="mind-boundary.zh.html">中文纲领 →</a>
+    <a href="mind-boundary-tech.zh.html">技术版 →</a>
+    <a href="#" onclick="window.print();return false;">Print</a>
+  </div>
 </div>
+
+<header>
+  <div class="hero">
+    <div class="eyebrow">Research Programme</div>
+    <h1>The Mind Has a Boundary</h1>
+    <p class="subtitle">A research programme extending beyond neuroscience: How can a boundary become a condition of a system’s own organization—one that the system can identify, represent, and maintain?</p>
+    <p class="meta">Formalization · Boundary and self-report · Architectural invariants</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro">
+    <p class="lead">Consider the claim: “The mind has a boundary.” How can this claim be formalized as a joint fixed-point condition that a system must satisfy?</p>
+
+    <p>From this foundational claim, the programme proceeds in four steps:</p>
+
+    <ol class="steps">
+      <li>Characterize the core of self-consciousness in terms of identifying, representing, and maintaining a boundary.</li>
+      <li>Formalize these operations mathematically through boundary operators, report families, and the relations between them.</li>
+      <li>Prove that, under explicit mathematical conditions, boundary structure and report structure determine one another.</li>
+      <li>Implement this relation as an engineering invariant, so that the boundary and its self-report cannot be committed independently.</li>
+    </ol>
+
+    <p>We do not need to establish at the outset that this relation holds for every real-world autonomous system before pursuing this line of research. Instead, we need to define the system we intend to construct, prove its architectural properties, and investigate whether this architecture can serve as a rigorous implementation of self-boundary cognition.</p>
+
+    <p>The foundational claim remains a premise of the research programme, not a universally established fact or a theorem already proved in a formal system. Making this explicit does not prevent us from constructing a theory from it.</p>
+  </div>
+
+  <section id="section-1">
+    <h2>1. Why Start from This Claim?</h2>
+
+    <p>Our starting point is:</p>
+
+    <div class="claim">
+      <strong>The core of self-consciousness lies in identifying, representing, and maintaining the boundary between “self” and “non-self.”</strong>
+    </div>
+
+    <p>This is not a mathematical theorem for Lean to prove directly; it is the foundational premise of the research programme.</p>
+
+    <p>These three activities translate into three concrete research requirements:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Core activity of self-consciousness</th>
+            <th>Question the system must answer</th>
+            <th>Corresponding engineering component</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identification</td>
+            <td>What belongs to the system, and what does not?</td>
+            <td>Boundary-identification mechanism</td>
+          </tr>
+          <tr>
+            <td>Representation</td>
+            <td>How does the system represent this distinction within its own organization?</td>
+            <td>A self-report of the boundary and an internal representation</td>
+          </tr>
+          <tr>
+            <td>Maintenance</td>
+            <td>How does the system preserve or update this distinction as its state changes?</td>
+            <td>Closure operators, state transitions, and invariants</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>There is an important consequence here.</p>
+
+    <p>If a system’s boundary is computed by an external program and the result is merely recorded in a log, a boundary-computation function exists, but the system does not thereby necessarily possess the core structure of self-consciousness defined here.</p>
+
+    <p>An external log can exist apart from the system’s actual organizational state. It may become outdated, inaccurate, or inconsistent with the boundary the system currently maintains.</p>
+
+    <p>Our question, then, is not simply whether a system has a boundary, but how a boundary becomes a condition of the system’s own organization—one that the system can identify, represent, and maintain.</p>
+
+    <p>This is why the programme starts from “the mind has a boundary.”</p>
+  </section>
+
+  <section id="section-2">
+    <h2>2. Why Does the Inseparability of Boundary and Self-Report Matter?</h2>
+
+    <p>The central result concerns the relation between boundary and self-report.</p>
+
+    <p>If a report is merely an external observer’s description, the boundary and the report can vary independently.</p>
+
+    <p>But if the report is the system’s internal representation of its own boundary, the problem changes: the report is no longer merely an auxiliary output produced after boundary computation. It becomes part of how the system represents and maintains its own boundary.</p>
+
+    <p>In our work on self-referential boundary machines, we distinguish two versions:</p>
+
+    <ul>
+      <li><strong>Weak version:</strong> a one-sided inclusion relation between the report family and the fixed points of its report-induced operator.</li>
+      <li><strong>Strong version:</strong> under specified conditions, the report family coincides with the relevant fixed-point family, and the report-induced boundary operator equals the intervention-generated boundary operator.</li>
+    </ul>
+
+    <p>The original research plan states that the goal is not merely to make an agent report its own boundary, but to construct a system in which boundary and self-report cannot be freely decoupled at the architectural level (see <code>00_研究线完整还原_20261019</code>).</p>
+
+    <p>This is the key step from the boundary-cognition hypothesis to an engineering architecture.</p>
+
+    <p>The ordinary architecture is:</p>
+
+    <div class="flow" aria-label="Ordinary architecture">
+      <div class="step">System state</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="step">Compute boundary</div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="step">Generate report</div>
+    </div>
+
+    <p>Our target architecture is:</p>
+
+    <div class="diagram" role="img" aria-label="System state and input lead to a joint boundary and self-report transition. The transition determines boundary structure, internal self-representation, and boundary maintenance rules. A consistency check leads either to joint commitment or rejection or review.">
+
+      <div class="row">
+        <div class="box">System state and input</div>
+      </div>
+
+      <div class="down" aria-hidden="true">↓</div>
+
+      <div class="row">
+        <div class="box">Joint boundary–self-report transition</div>
+      </div>
+
+      <div class="down" aria-hidden="true">↓</div>
+
+      <div class="row">
+        <div class="box">Boundary structure</div>
+        <div class="box">Internal self-representation</div>
+        <div class="box">Boundary-maintenance rules</div>
+      </div>
+
+      <div class="down" aria-hidden="true">↓</div>
+
+      <div class="row">
+        <div class="box">Consistency check</div>
+      </div>
+
+      <div class="down" aria-hidden="true">↓</div>
+
+      <div class="decision">
+        <span>Joint commitment</span>
+        <span>Reject or review</span>
+      </div>
+    </div>
+
+    <p>The point is not to add another reporting module. The point is that a system must not commit an incomplete state as valid when the boundary–self-report consistency condition is not satisfied.</p>
+
+    <p>The fact that we have not proved that every autonomous system must have this architecture is not the central issue in the present research. The central question is how, within the boundary-cognition system we define, this architectural relation can be expressed, proved, and implemented rigorously.</p>
+  </section>
+
+  <section id="section-3">
+    <h2>3. A Precise Statement of the Programme’s Aim</h2>
+
+    <p>Taking as its foundational premise the claim that the core of self-consciousness lies in identifying, representing, and maintaining the boundary between self and non-self, the programme studies how an autonomous system identifies, represents, and maintains the distinction between itself and what is not itself. The central question is not what boundary a system already possesses, but how a boundary becomes an organizational structure that the system itself can identify, represent, and maintain. The conditional mutual determination of boundary structure and self-report is one formal result of the programme. The corresponding engineering goal is to implement this relation as an invariant of joint state transitions.</p>
+
+    <p>This connects the philosophical starting point, the mathematical results, and the engineering direction.</p>
+
+    <p>This connection also explains why self-reference matters to the programme: when a system must not only distinguish itself from what is not itself, but also represent and maintain that distinction within its own organization, it faces a problem of representing its own organization.</p>
+
+    <p>We do not need to declare at the outset that all autonomous systems must have the same kind of self-referential mechanism. We can begin with the boundary-cognition hypothesis, investigate a specific form of self-reference, establish the conditions under which it holds, and identify which conditions are indispensable.</p>
+
+    <p class="lead"><strong>We begin with “the mind has a boundary” in order to turn self-consciousness from a property to be described into a problem whose conditions of emergence, organizational structure, and mechanisms of maintenance can be studied.</strong></p>
+
+    <p>That is the programme: an investigation of a defined system and its architectural properties, not an attempt to prove an unrestricted universal proposition about all autonomous systems.</p>
+  </section>
+
+</main>
+
+<footer>
+  <a href="mind-boundary.zh.html">中文纲领</a> · <a href="mind-boundary-tech.zh.html">技术版</a> · <a href="mind-boundary-evidence.zh.html">证据与版本</a>
+  <div style="margin-top:6px">The Mind Has a Boundary: A Research Programme · English edition · 2026-10-24</div>
+</footer>
 </body>
 </html>
